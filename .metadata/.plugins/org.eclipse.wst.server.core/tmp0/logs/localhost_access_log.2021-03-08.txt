@@ -1,0 +1,8 @@
+127.0.0.1 - - [08/Mar/2021:18:02:45 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [08/Mar/2021:18:02:47 +0900] "GET /practice/ HTTP/1.1" 404 1081
+0:0:0:0:0:0:0:1 - - [08/Mar/2021:18:02:47 +0900] "GET /practice/css/egovframework/sample.css;jsessionid=775F5C63E4AB8969F21718D6EA2FFD43 HTTP/1.1" 200 10013
+0:0:0:0:0:0:0:1 - - [08/Mar/2021:18:02:47 +0900] "GET /practice/images/egovframework/example/error_bg.jpg HTTP/1.1" 404 1037
+0:0:0:0:0:0:0:1 - - [08/Mar/2021:18:02:49 +0900] "GET /practice/testList.do HTTP/1.1" 200 568316
+0:0:0:0:0:0:0:1 - - [08/Mar/2021:18:02:51 +0900] "POST /practice/testDetail.do?no=3 HTTP/1.1" 200 7119
+0:0:0:0:0:0:0:1 - - [08/Mar/2021:18:02:52 +0900] "GET /css/test/test.css HTTP/1.1" 404 832
+0:0:0:0:0:0:0:1 - - [08/Mar/2021:18:02:52 +0900] "GET /css/test/test.css HTTP/1.1" 404 832

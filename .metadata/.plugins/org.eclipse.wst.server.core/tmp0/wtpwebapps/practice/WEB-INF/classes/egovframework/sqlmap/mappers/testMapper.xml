@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="egovframework.practice.test.service.TestMapper">
+
+	<select id="selectTest" resultType="TestVO">
+		SELECT
+		*
+		FROM test
+	</select>
+
+
+	<!--게시글 삽입 -->
+	<insert id="insertTest" parameterType="TestVO">
+		<![CDATA[
+		INSERT INTO test(kinds,gun,gu,bTotal, bActual, bIe, bIndomi,bEtc,bUnme,bEvalue,bStatus,aTotal,aActual,aIe,aStatus,AIndomi,aEtc,aUnme,aEvalue)
+		VALUES(#{bTotal}, #{bActual}, #{bIe}, #{bIndomi}, #{bEtc}, #{bUnme}, #{bEvalue}, #{bStatus}, #{aTotal}, #{aActual}, #{aIe},#{aStatus},#{AIndomi} #{aEtc}, #{aUnme},#{aEvalue} )
+		]]>
+	</insert>
+
+	<!--게시글 클릭시 detailView -->
+	<select id="selectDetail"
+		parameterType="egovframework.practice.test.domain.TestVO"
+		resultType="egovframework.practice.test.domain.TestVO">
+		<![CDATA[
+			SELECT *
+			FROM test
+			WHERE "no" = #{no}
+		]]>
+	</select>
+
+	<!--게시글 업데이트 -->
+	<update id="updateTest">
+		update test set
+		kinds = #{kinds}
+		,gun =#{gun}
+		,gu =#{gu}
+		bTotal = #{bTotal}
+		,bActual =
+		#{bActual}
+		,bIe =
+		#{bIe}
+		,bIndomi =
+		#{bIndomi}
+		,bEtc =
+		#{bEtc}
+		,bUnme =
+		#{bUnme}
+		,bEvalue =
+		#{bEvalue}
+		,bStatus =
+		#{bStatus}
+		,aTotal =
+		#{aTotal}
+		,aActual =
+		#{aActual}
+		,aIe =
+		#{aIe}
+		,aStatus =
+		#{aStatus}
+		,AIndomi =
+		#{AIndomi}
+		,aEtc =
+		#{aEtc}
+		,aUnme =
+		#{aUnme}
+		,aEvalue =
+		#{aEvalue}
+		where
+		"bTotal" = #{bTotal}
+	</update>
+
+	<!--게시글 삭제 -->
+	<delete id="deleteTest">
+		delete from test
+		where
+		"no" = #{no}
+	</delete>
+
+</mapper> 
