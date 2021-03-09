@@ -38,6 +38,8 @@ public class TestController {
 	@RequestMapping(value = "/insertTest.do")
 	public String write(@ModelAttribute("testVO") TestVO testVO, RedirectAttributes rttr) throws Exception {
 		testServiceImpl.insertTest(testVO);
+		
+		
 		return "redirect:testList.do";
 	}
 
@@ -71,5 +73,6 @@ public class TestController {
 		testServiceImpl.deleteTest(testVO);
 		return "redirect:testList.do";
 	}
+	
 
 }

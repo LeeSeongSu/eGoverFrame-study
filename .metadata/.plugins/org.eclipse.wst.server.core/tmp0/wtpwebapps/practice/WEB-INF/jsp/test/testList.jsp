@@ -11,7 +11,7 @@
 
 <link type="text/css" rel="stylesheet"
 	href="<c:url value='/css/egovframework/sample.css'/>" />
-
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 
 <body
@@ -49,12 +49,11 @@
 									value="${result.kinds}" />&nbsp;</td>
 							<td rowspan="2" align="center" class="listtd"><c:out
 									value="${result.gun}" />&nbsp;</td>
-							<td rowspan="2" align="center" class="listtd"><a href='#'
-								onclick='fn_view(${result.no})'/><c:out
+							<td rowspan="2" align="center" class="listtd"><c:out
 									value="${result.gu}" />&nbsp;</td>
 							<td colspan="2" align="center" class="listtd">2010년 까지</td>
 							<td align="center" class="listtd"><c:out
-										value="${result.bTotal}" />&nbsp;</td>
+									value="${result.bTotal}" />&nbsp;</td>
 							<td align="center" class="listtd"><c:out
 									value="${result.bActual}" />&nbsp;</td>
 							<td align="center" class="listtd"><c:out
@@ -70,49 +69,34 @@
 							<td align="center" class="listtd"><c:out
 									value="${result.bStatus}" />&nbsp;</td>
 
-							<td>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value=""
-										id="flexCheckDefault" />
-								</div>
-							</td>
-							<td>
+						
+							<td rowspan="2">
 								<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-									<button class="btn btn-primary me-md-2" type="button">수정</button>
-									<button class="btn btn-primary" type="button">삭제</button>
+									<a href='#' onclick='fn_view(${result.no})' />
+									<button class="btn btn-primary me-md-2" type="button">상세보기</button>
 								</div>
 							</td>
-						<tr>
-							<td colspan="2" align="center" class="listtd">2010년 이후</td>
-							<td align="center" class="listtd"><c:out
-									value="${result.aTotal}" />&nbsp;</td>
-							<td align="center" class="listtd"><c:out
-									value="${result.aActual}" />&nbsp;</td>
-							<td align="center" class="listtd"><c:out
-									value="${result.aIe}" />&nbsp;</td>
-							<td align="center" class="listtd"><c:out
-									value="${result.aIndomi}" />&nbsp;</td>
-							<td align="center" class="listtd"><c:out
-									value="${result.aEtc}" />&nbsp;</td>
-							<td align="center" class="listtd"><c:out
-									value="${result.aUnme}" />&nbsp;</td>
-							<td align="center" class="listtd"><c:out
-									value="${result.aEvalue}" />&nbsp;</td>
-							<td align="center" class="listtd"><c:out
-									value="${result.aStatus}" />&nbsp;</td>
-							<td>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value=""
-										id="flexCheckDefault" />
-								</div>
-							</td>
-							<td>
-								<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-									<button class="btn btn-primary me-md-2" type="button">수정</button>
-									<button class="btn btn-primary" type="button">삭제</button>
-								</div>
-							</td>
-						</tr>
+							<tr>
+								<td colspan="2" align="center" class="listtd">2010년 이후</td>
+								<td align="center" class="listtd"><c:out
+										value="${result.aTotal}" />&nbsp;</td>
+								<td align="center" class="listtd"><c:out
+										value="${result.aActual}" />&nbsp;</td>
+								<td align="center" class="listtd"><c:out
+										value="${result.aIe}" />&nbsp;</td>
+								<td align="center" class="listtd"><c:out
+										value="${result.aIndomi}" />&nbsp;</td>
+								<td align="center" class="listtd"><c:out
+										value="${result.aEtc}" />&nbsp;</td>
+								<td align="center" class="listtd"><c:out
+										value="${result.aUnme}" />&nbsp;</td>
+								<td align="center" class="listtd"><c:out
+										value="${result.aEvalue}" />&nbsp;</td>
+								<td align="center" class="listtd"><c:out
+										value="${result.aStatus}" />&nbsp;</td>
+								
+								
+							</tr>
 
 						</tr>
 					</c:forEach>
@@ -122,17 +106,17 @@
 
 	</div>
 	<div>
-		<button id="btn_write" type="button" class="btn_write">글작성</button>
+		<button id="btn_write" type="button" style="float: right;"btn_write">글작성</button>
 	</div>
 
 </body>
 <script type="text/javascript">
 	//글 작성 버튼 클릭 시 testRegister로 이동
-/* 	$("#btn_write").click(function javascript_onclikc() {
+ 	$("#btn_write").click(function javascript_onclikc() {
 		$(location).attr('href', 'testRegister.do');
 
-	}); */
-
+	}); 
+	
 	//글조회
 	//	어떤 게시물을 클릭했는지 게시물의 번호(gu)를 넘겨 줘야 함 따라서 게시물 클릭 이벤트에서 게시물의 번호를 인자 값으로 받습니다.
 	//  get 방식으로 데이터를 전송합니다. 따라서 ? 연산자를 사용해 gu를 주소 뒤에 붙여 줍니다

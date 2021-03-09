@@ -14,8 +14,10 @@
 	<!--게시글 삽입 -->
 	<insert id="insertTest" parameterType="TestVO">
 		<![CDATA[
-		INSERT INTO test(kinds,gun,gu,bTotal, bActual, bIe, bIndomi,bEtc,bUnme,bEvalue,bStatus,aTotal,aActual,aIe,aStatus,AIndomi,aEtc,aUnme,aEvalue)
-		VALUES(#{bTotal}, #{bActual}, #{bIe}, #{bIndomi}, #{bEtc}, #{bUnme}, #{bEvalue}, #{bStatus}, #{aTotal}, #{aActual}, #{aIe},#{aStatus},#{AIndomi} #{aEtc}, #{aUnme},#{aEvalue} )
+		INSERT INTO test
+("bTotal", "bActual", "bIe", "bIndomi", "bEtc", "bUnme", "bEvalue", "aTotal", "aActual", "aIe",  "aIndomi", "aEtc", "aUnme", "aEvalue", kinds, gun, gu, "no", "name", "phoneNumber", "bEtcEx", "aEtcEx")
+VALUES(#{bTotal},#{bActual},#{bIe},#{bIndomi},#{bEtc},#{bUnme}, #{bEvalue},  #{aTotal}, #{aActual}, #{aIe},  #{aIndomi},#{aEtc}, #{aUnme}, #{aEvalue}, #{kinds},#{gun},#{gu}, #{no}, #{name},#{phoneNumber}, #{bEtcEx}, #{aEtcEx})
+		
 		]]>
 	</insert>
 
@@ -33,42 +35,30 @@
 	<!--게시글 업데이트 -->
 	<update id="updateTest">
 		update test set
-		kinds = #{kinds}
-		,gun =#{gun}
-		,gu =#{gu}
-		bTotal = #{bTotal}
-		,bActual =
-		#{bActual}
-		,bIe =
-		#{bIe}
-		,bIndomi =
-		#{bIndomi}
-		,bEtc =
-		#{bEtc}
-		,bUnme =
-		#{bUnme}
-		,bEvalue =
-		#{bEvalue}
-		,bStatus =
-		#{bStatus}
-		,aTotal =
-		#{aTotal}
-		,aActual =
-		#{aActual}
-		,aIe =
-		#{aIe}
-		,aStatus =
-		#{aStatus}
-		,AIndomi =
-		#{AIndomi}
-		,aEtc =
-		#{aEtc}
-		,aUnme =
-		#{aUnme}
-		,aEvalue =
-		#{aEvalue}
-		where
-		"bTotal" = #{bTotal}
+		 "name" = #{name}
+		,"phoneNumber" = #{phoneNumber}
+		,"bEtcEx" = #{bEtcEx}
+		,"aEtcEx" = #{aEtcEx}
+		,"kinds" = #{kinds}
+		,"gun" = #{gun}
+		,"gu" = #{gu}
+		,"bTotal" = #{bTotal}
+		,"bActual" = #{bActual}
+		,"bIe" = #{bIe}
+		,"bIndomi" = #{bIndomi}
+		,"bEtc" = #{bEtc}
+		,"bUnme" = #{bUnme}
+		,"bEvalue" = #{bEvalue}
+		<!-- ,"bStatus" = #{bStatus} -->
+		,"aTotal" = #{aTotal}
+		,"aActual" = #{aActual}
+		,"aIe" = #{aIe}
+		<!-- ,"aStatus" = #{aStatus} -->
+		,"aIndomi" = #{aIndomi}
+		,"aEtc" = #{aEtc}
+		,"aUnme" = #{aUnme}
+		,"aEvalue" = #{aEvalue}
+		where "no" = #{no}
 	</update>
 
 	<!--게시글 삭제 -->

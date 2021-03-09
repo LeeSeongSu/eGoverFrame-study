@@ -6,6 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -23,40 +26,149 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
-<link href="/css/test/test.css" rel="stylesheet" type="text/css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+
 </head>
 <body>
 	<div class="container">
-		<table class="table table-bordered">
-			<thead>
-				<h1>글쓰기</h1>
-			</thead>
-			<tbody>
-				<form id="form_test" action="insertTest.do" method="post"
-					encType="multiplart/form-data">
+		<form action="insertTest.do" id="form_test" method="post"
+			encType="multiplart/form-data">
+			<table class="table table-bordered">
+				<thead>
+					<h3>기본정보</h3>
+				</thead>
+				<tbody>
 					<tr>
-						<th>제목:</th>
-						<td><input type="text" placeholder="제목을 입력하세요. "
-							name="testTitle" class="form-control" /></td>
-					</tr>
-					<tr>
-						<th>내용:</th>
-						<td><textarea placeholder="내용을 입력하세요 . " name="testContent"
-								class="form-control" style="height: 200px;"></textarea></td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<button id="btn_register" type="button" class="btn_register">등록</button>
-							<button id="btn_previous" type="button" class="btn_previous">이전</button>
+						<th>기관</th>
+						<td><input name="gun" type="text" class="form-control" /></td>
+						<th>담당자</th>
+						<td><input name="name" type="text" class="form-control" /></td>
 					</tr>
 
-				</form>
-			</tbody>
-		</table>
+					<tr>
+						<th>전화번호</th>
+						<td><input type="text" name="phoneNumber" class="form-control" /></td>
+						<th>시설물</th>
+						<td><input type="text" name="kinds" class="form-control" /></td>
+					</tr>
+				</tbody>
+			</table>
+			<br> <br> <br>
+			<table class="table table-bordered">
+				<thead>
+					<h3>시설물 물량 현황 정보</h3>
+				</thead>
+				<tbody>
+					<tr>
+						<th rowspan="4" align="center">물량(단위:km)</th>
+						<td colspan="2" rowspan="2" align="center">구분</td>
+						<td rowspan="2" align="center">총연장</td>
+						<td colspan="3" align="center">측량</td>
+						<td colspan="3" align="center">비측량</td>
+						<td rowspan="2" align="center">성과심사</td>
+					</tr>
+					<tr>
+						<td align="center">실측</td>
+						<td align="center">조/탐사</td>
+						<td align="center">불탐</td>
+						<td align="center">도면이기</td>
+						<td colspan="2" align="center">기타</td>
+					</tr>
+					<tr>
+						<td align="center">2010년 까지</td>
+						<td align="center" rowspan="2">구축물량</td>
+						<td align="center"><input type="text" name="bTotal"
+							class="form-control" /></td>
+						<td align="center"><input type="text" name="bActual"
+							class="form-control" /></td>
+						<td align="center"><input type="text" name="bIe"
+							class="form-control" /></td>
+						<td align="center"><input type="text" name="bIndomi"
+							class="form-control" /></td>
+						<td align="center"><input type="text" name="bUnme"
+							class="form-control" /></td>
+						<td align="center"><input type="text" name="bEtc"
+							class="form-control" /></td>
+						<td align="center"><input type="text" name="bEtcEx"
+							class="form-control" /></td>
+						<td align="center"><input type="text" name="bEvalue"
+							class="form-control" /></td>
+					</tr>
+					<tr>
+						<td align="center">2010년 이후</td>
+						<td align="center" rowspan="2"><input type="text" name="aTotal"
+							class="form-control" /></td>
+						<td align="center"><input type="text" name="aActual"
+							class="form-control" /></td>
+						<td align="center"><input type="text" name="aIe"
+							class="form-control" /></td>
+						<td align="center"><input type="text" name="aIndomi"
+							class="form-control" /></td>
+						<td align="center"><input type="text" name="aUnme"
+							class="form-control" /></td>
+						<td align="center"><input type="text" name="aEtc"
+							class="form-control" /></td>
+						<td align="center"><input type="text" name="aEtcEx"
+							class="form-control" /></td>
+						<td align="center"><input type="text" name="aEvalue"
+							class="form-control" /></td>
+					</tr>
+				</tbody>
+			</table>
+			<br> <br> <br>
+			<table class="table table-bordered">
+				<thead>
+					<h3>비 측량물량(도면이기 등) 상세</h3>
+				</thead>
+				<tbody>
+					<tr>
+						<th>객체단위 데이터 추출 가능 여부</th>
+						<td><select class="form-control form-control-sm">
+								<option>가능</option>
+								<option>불가능</option>
+
+						</select></td>
+						<td>첨부파일(비 측량 데이터)</td>
+						<td>
+							<div class="mb-3">
+								<input class="form-control" type="file" id="formFile">
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br> <br> <br>
+			<table class="table table-bordered">
+				<tbody>
+					<th>선택</th>
+					<th>도면이기 물량</th>
+					<th>시도</th>
+					<th>시군구</th>
+					<th>읍면동</th>
+					<tr>
+						<td>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value=""
+									id="flexCheckDefault">
+							</div>
+						</td>
+						<td><input type="text" /></td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+
+				</tbody>
+
+			</table>
+			<button id="btn_register" type="button" class="btn_register"
+				style="float: right;">등록</button>
+			<button id="btn_previous" type="button" class="btn_previous"
+				style="float: right;">이전</button>
+
+
+		</form>
+
 	</div>
-
 
 </body>
 <script type="text/javascript">

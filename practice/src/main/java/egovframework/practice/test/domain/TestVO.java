@@ -22,6 +22,10 @@ public class TestVO {
 	private int aUnme;
 	private int aEvalue;
 	private boolean aStatus;
+	private String bEtcEx;
+	private String aEtcEx;
+	private String name;
+	private String phoneNumber;
 
 	public int getNo() {
 		return no;
@@ -181,6 +185,38 @@ public class TestVO {
 
 	public void setaStatus(boolean aStatus) {
 		this.aStatus = aStatus;
+	}
+
+	public String getbEtcEx() {
+		return bEtcEx;
+	}
+
+	public void setbEtcEx(String bEtcEx) {
+		this.bEtcEx = bEtcEx;
+	}
+
+	public String getaEtcEx() {
+		return aEtcEx;
+	}
+
+	public void setaEtcEx(String aEtcEx) {
+		this.aEtcEx = aEtcEx;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 }
