@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import egovframework.practice.test.dao.TestDAO;
-
+import egovframework.practice.test.domain.SigunguVO;
 import egovframework.practice.test.domain.TestVO;
 import egovframework.practice.test.service.TestService;
 
@@ -15,6 +15,7 @@ public class TestServiceImpl implements TestService {
 
 	@Autowired
 	private TestDAO testDAOService;
+	
 
 	@Override
 	public List<TestVO> selectTest(TestVO testVO) throws Exception {
@@ -44,4 +45,30 @@ public class TestServiceImpl implements TestService {
 	public void deleteTest(TestVO testVO) throws Exception {
 		testDAOService.deleteTest(testVO);
 	}
+	
+	@Override
+	public List<SigunguVO> selectSi(SigunguVO sigunguVO) throws Exception {
+		return testDAOService.selectSi(sigunguVO);
+	}
+
+
+	@Override
+	public List<SigunguVO> selectGungu(SigunguVO sigunguVO) throws Exception {
+		return testDAOService.selectGungu(sigunguVO);
+	}
+
+	@Override
+	public List<SigunguVO> selectDong(SigunguVO sigunguVO) throws Exception {
+		return testDAOService.selectDong(sigunguVO);
+	}
+
+
+	@Override
+	public List<SigunguVO> selectKinds(SigunguVO sigunguVO) throws Exception {
+		return testDAOService.selectKinds(sigunguVO);
+	}
+
+
+	
+
 }

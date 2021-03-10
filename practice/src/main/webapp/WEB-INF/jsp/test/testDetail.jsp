@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -36,8 +39,16 @@
 				<tbody>
 					<tr>
 						<th>기관</th>
-						<td><input type="text" name="gun" value="${result.gun}"
-							class="form-control" /></td>
+						<td><select name="si" class="form-control form-control-sm">
+
+								<option><c:out value="${result.si}" /></option>
+
+						</select> <select name="gungu" class="form-control form-control-sm">
+
+								<option><c:out value="${result.gungu}" /></option>
+
+						</select></td>
+
 						<th>담당자</th>
 						<td><input type="text" name="name" value="${result.name}"
 							class="form-control" /></td>
@@ -48,8 +59,11 @@
 						<td><input type="text" value="${result.phoneNumber}"
 							name="phoneNumber" class="form-control" /></td>
 						<th>시설물</th>
-						<td><input type="text" value="${result.kinds}" name="kinds"
-							class="form-control" /></td>
+						<td><select name="kinds" class="form-control form-control-sm">
+
+								<option><c:out value="${result.kinds}" /></option>
+
+						</select></td>
 					</tr>
 				</tbody>
 			</table>
@@ -100,16 +114,16 @@
 							value="${result.aTotal}" name="aTotal" class="form-control" /></td>
 						<td align="center"><input type="text"
 							value="${result.aActual}" name="aActual" class="form-control" /></td>
+						<td align="center"><input type="text" value="${result.aIe}"
+							name="aIe" class="form-control" /></td>
 						<td align="center"><input type="text"
-							value="${result.aIe}" name="aIe" class="form-control" /></td>
-						<td align="center"><input type="text" value="${result.aIndomi}"
-							name="aIndomi" class="form-control" /></td>
-						<td align="center"><input type="text"
-							value="${result.aUnme}" name="aUnme" class="form-control" /></td>
+							value="${result.aIndomi}" name="aIndomi" class="form-control" /></td>
+						<td align="center"><input type="text" value="${result.aUnme}"
+							name="aUnme" class="form-control" /></td>
 						<td align="center"><input type="text" value="${result.aEtc}"
 							name="aEtc" class="form-control" /></td>
-						<td align="center"><input type="text" value="${result.aEtcEx}"
-							name="aEtcEx" class="form-control" /></td>
+						<td align="center"><input type="text"
+							value="${result.aEtcEx}" name="aEtcEx" class="form-control" /></td>
 						<td align="center"><input type="text"
 							value="${result.aEvalue}" name="aEvalue" class="form-control" /></td>
 					</tr>
@@ -123,10 +137,10 @@
 				<tbody>
 					<tr>
 						<th>객체단위 데이터 추출 가능 여부</th>
-						<td><select class="form-control form-control-sm">
-								<option>가능</option>
-								<option>불가능</option>
-
+						<td><select class="form-control form-control-sm"
+							name="bStatus">
+								<option value="true">가능</option>
+								<option value="false">불가능</option>
 						</select></td>
 						<td>첨부파일(비 측량 데이터)</td>
 						<td>
@@ -140,11 +154,17 @@
 			<br> <br> <br>
 			<table class="table table-bordered">
 				<tbody>
-					<th>선택</th>
-					<th>도면이기 물량</th>
-					<th>시도</th>
-					<th>시군구</th>
-					<th>읍면동</th>
+					<input type='button' value='행삭제' onclick='delRow()'
+						style="float: right;" />
+					<input type='button' value='행추가' onclick='addRow()'
+						style="float: right;" />
+					<tr>
+						<th>선택</th>
+						<th>도면이기 물량</th>
+						<th>시도</th>
+						<th>시군구</th>
+						<th>읍면동</th>
+					</tr>
 					<tr>
 						<td>
 							<div class="form-check">
@@ -153,9 +173,21 @@
 							</div>
 						</td>
 						<td><input type="text" value="" /></td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
+						<td><select class="form-control form-control-sm">
+
+								<option><c:out value="${result.si}" /></option>
+
+						</select></td>
+						<td><select class="form-control form-control-sm">
+
+								<option><c:out value="${result.gungu}" /></option>
+
+						</select></td>
+						<td><select class="form-control form-control-sm">
+
+								<option><c:out value="${result.dong}" /></option>
+
+						</select></td>
 					</tr>
 
 				</tbody>
@@ -196,5 +228,39 @@
 		$(location).attr('href', 'testList.do');
 
 	});
+
+	function addRow() {
+		// table element 찾기
+		const table = document.getElementById('unmeTable');
+
+		// 새 행(Row) 추가 (테이블 중간에)
+		const newRow = table.insertRow(1);
+
+		// 새 행(Row)에 Cell 추가
+		const newCell1 = newRow.insertCell(0);
+		const newCell2 = newRow.insertCell(1);
+		const newCell3 = newRow.insertCell(2);
+		const newCell4 = newRow.insertCell(3);
+		const newCell5 = newRow.insertCell(4);
+
+		// Cell에 텍스트 추가
+		newCell1.innerHTML = "<input type='checkbox'>";
+		newCell2.innerHTML = "<input type='text' />";
+		newCell3.innerHTML = "<select class='form-control form-control-sm'><option><c:out value='${result.si}' /></option></select>";
+		newCell4.innerHTML = "<select class='form-control form-control-sm'><option><c:out value='${result.gungu}' /></option></select>";
+		newCell5.innerHTML = "<select class='form-control form-control-sm'><option><c:out value='${result.dong}' /></option></select>";
+	}
+
+	function delRow() {
+		var tableData = document.getElementById('unmeTable');
+		for (var i = 1; i < tableData.rows.length; i++) {s
+			var chkbox = tableData.rows[i].cells[0].childNodes[0].checked;
+
+			if (chkbox) {
+				tableData.deleteRow(i);
+				i--;
+			}
+		}
+	}
 </script>
 </html>

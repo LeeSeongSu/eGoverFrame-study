@@ -8,9 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.ibatis.common.logging.Log;
-
+import egovframework.practice.test.domain.SigunguVO;
 import egovframework.practice.test.domain.TestVO;
 import egovframework.practice.test.service.TestService;
 
@@ -30,7 +28,14 @@ public class TestController {
 
 	// 글 작성 클릭시 글 작성 페이지로 이동
 	@RequestMapping(value = "/testRegister.do")
-	public String testRegister() {
+	public String testRegister(TestVO testVO, SigunguVO sigunguVO, Model model) throws Exception {
+
+		model.addAttribute("list", testServiceImpl.selectTest(testVO));
+		model.addAttribute("si", testServiceImpl.selectSi(sigunguVO));
+		model.addAttribute("gungu", testServiceImpl.selectGungu(sigunguVO));
+		model.addAttribute("dong", testServiceImpl.selectDong(sigunguVO));
+		model.addAttribute("kinds", testServiceImpl.selectKinds(sigunguVO));
+
 		return "test/testRegister";
 	}
 
@@ -38,8 +43,7 @@ public class TestController {
 	@RequestMapping(value = "/insertTest.do")
 	public String write(@ModelAttribute("testVO") TestVO testVO, RedirectAttributes rttr) throws Exception {
 		testServiceImpl.insertTest(testVO);
-		
-		
+
 		return "redirect:testList.do";
 	}
 
@@ -52,7 +56,6 @@ public class TestController {
 		int no = Integer.parseInt(request.getParameter("no"));
 
 		testVO.setNo(no);
-	
 
 		TestVO resultVO = testServiceImpl.selectDetail(testVO);
 		model.addAttribute("result", resultVO);
@@ -73,6 +76,5 @@ public class TestController {
 		testServiceImpl.deleteTest(testVO);
 		return "redirect:testList.do";
 	}
-	
 
 }

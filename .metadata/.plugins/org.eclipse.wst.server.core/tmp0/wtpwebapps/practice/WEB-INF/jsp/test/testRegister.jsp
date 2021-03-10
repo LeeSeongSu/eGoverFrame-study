@@ -1,13 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
@@ -39,16 +43,29 @@
 				<tbody>
 					<tr>
 						<th>기관</th>
-						<td><input name="gun" type="text" class="form-control" /></td>
+						<td><select name="si" class="form-control form-control-sm">
+								<c:forEach var="result" items="${si}" varStatus="status">
+									<option><c:out value="${result.si}" /></option>
+								</c:forEach>
+						</select> <select name="gungu" class="form-control form-control-sm">
+								<c:forEach var="result" items="${gungu}" varStatus="status">
+									<option><c:out value="${result.gungu}" /></option>
+								</c:forEach>
+						</select></td>
 						<th>담당자</th>
 						<td><input name="name" type="text" class="form-control" /></td>
 					</tr>
 
 					<tr>
 						<th>전화번호</th>
-						<td><input type="text" name="phoneNumber" class="form-control" /></td>
+						<td><input type="text" name="phoneNumber"
+							class="form-control" /></td>
 						<th>시설물</th>
-						<td><input type="text" name="kinds" class="form-control" /></td>
+						<td><select name="kinds" class="form-control form-control-sm">
+								<c:forEach var="result" items="${kinds}" varStatus="status">
+									<option><c:out value="${result.kinds}" /></option>
+								</c:forEach>
+						</select></td>
 					</tr>
 				</tbody>
 			</table>
@@ -95,8 +112,8 @@
 					</tr>
 					<tr>
 						<td align="center">2010년 이후</td>
-						<td align="center" rowspan="2"><input type="text" name="aTotal"
-							class="form-control" /></td>
+						<td align="center" rowspan="2"><input type="text"
+							name="aTotal" class="form-control" /></td>
 						<td align="center"><input type="text" name="aActual"
 							class="form-control" /></td>
 						<td align="center"><input type="text" name="aIe"
@@ -122,10 +139,10 @@
 				<tbody>
 					<tr>
 						<th>객체단위 데이터 추출 가능 여부</th>
-						<td><select class="form-control form-control-sm">
-								<option>가능</option>
-								<option>불가능</option>
-
+						<td><select class="form-control form-control-sm"
+							name="bStatus">
+								<option value="true">가능</option>
+								<option value="false">불가능</option>
 						</select></td>
 						<td>첨부파일(비 측량 데이터)</td>
 						<td>
@@ -137,13 +154,20 @@
 				</tbody>
 			</table>
 			<br> <br> <br>
-			<table class="table table-bordered">
+			<table id="unmeTable" class="table table-bordered">
 				<tbody>
-					<th>선택</th>
-					<th>도면이기 물량</th>
-					<th>시도</th>
-					<th>시군구</th>
-					<th>읍면동</th>
+					<input type='button' value='행삭제' onclick='delRow()'
+						style="float: right;" />
+					<input type='button' value='행추가' onclick='addRow()'
+						style="float: right;" />
+					<tr>
+						<th>선택</th>
+						<th>도면이기 물량</th>
+						<th>시도</th>
+						<th>시군구</th>
+						<th>읍면동</th>
+
+					</tr>
 					<tr>
 						<td>
 							<div class="form-check">
@@ -152,9 +176,23 @@
 							</div>
 						</td>
 						<td><input type="text" /></td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
+
+						<td><select class="form-control form-control-sm">
+								<c:forEach var="result" items="${si}" varStatus="status">
+									<option><c:out value="${result.si}" /></option>
+								</c:forEach>
+						</select></td>
+						<td><select class="form-control form-control-sm">
+								<c:forEach var="result" items="${gungu}" varStatus="status">
+									<option><c:out value="${result.gungu}" /></option>
+								</c:forEach>
+						</select></td>
+						<td><select class="form-control form-control-sm">
+								<c:forEach var="result" items="${dong}" varStatus="status">
+									<option><c:out value="${result.dong}" /></option>
+								</c:forEach>
+						</select></td>
+
 					</tr>
 
 				</tbody>
@@ -182,5 +220,39 @@
 	$("#btn_previous").click(function javascript_onclikc() {
 		$(location).attr('href', 'testList.do');
 	});
+
+	function addRow() {
+		// table element 찾기
+		const table = document.getElementById('unmeTable');
+
+		// 새 행(Row) 추가 (테이블 중간에)
+		const newRow = table.insertRow(1);
+
+		// 새 행(Row)에 Cell 추가
+		const newCell1 = newRow.insertCell(0);
+		const newCell2 = newRow.insertCell(1);
+		const newCell3 = newRow.insertCell(2);
+		const newCell4 = newRow.insertCell(3);
+		const newCell5 = newRow.insertCell(4);
+
+		// Cell에 텍스트 추가
+		newCell1.innerHTML = "<input type='checkbox'>";
+		newCell2.innerHTML = "<input type='text' />";
+		newCell3.innerHTML = "<select class='form-control form-control-sm'><c:forEach var='result' items='${list}' varStatus='status'><option><c:out value='${result.si}' /></option></c:forEach></select>";
+		newCell4.innerHTML = "<select class='form-control form-control-sm'><c:forEach var='result' items='${list}' varStatus='status'><option><c:out value='${result.gungu}' /></option></c:forEach></select>";
+		newCell5.innerHTML = "<select class='form-control form-control-sm'><c:forEach var='result' items='${list}' varStatus='status'><option><c:out value='${result.dong}' /></option></c:forEach></select>";
+	}
+
+	function delRow() {
+		var tableData = document.getElementById('unmeTable');
+		for (var i = 1; i < tableData.rows.length; i++) {
+			var chkbox = tableData.rows[i].cells[0].childNodes[0].checked;
+
+			if (chkbox) {
+				tableData.deleteRow(i);
+				i--;
+			}
+		}
+	}
 </script>
 </html>

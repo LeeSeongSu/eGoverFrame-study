@@ -48,9 +48,9 @@
 							<td rowspan="2" align="center" class="listtd"><c:out
 									value="${result.kinds}" />&nbsp;</td>
 							<td rowspan="2" align="center" class="listtd"><c:out
-									value="${result.gun}" />&nbsp;</td>
+									value="${result.si}" />&nbsp;</td>
 							<td rowspan="2" align="center" class="listtd"><c:out
-									value="${result.gu}" />&nbsp;</td>
+									value="${result.gungu}" />&nbsp;</td>
 							<td colspan="2" align="center" class="listtd">2010년 까지</td>
 							<td align="center" class="listtd"><c:out
 									value="${result.bTotal}" />&nbsp;</td>

@@ -2,7 +2,7 @@ package egovframework.practice.test.dao;
 
 import java.util.List;
 
-
+import egovframework.practice.test.domain.SigunguVO;
 import egovframework.practice.test.domain.TestVO;
 
 public interface TestDAO {
@@ -17,6 +17,13 @@ public interface TestDAO {
 
 	void deleteTest(TestVO testVO) throws Exception;
 
+	List<SigunguVO> selectSi(SigunguVO sigunguVO) throws Exception;
+
+	List<SigunguVO> selectGungu(SigunguVO sigunguVO) throws Exception;
+
+	List<SigunguVO> selectDong(SigunguVO sigunguVO) throws Exception;
+
+	List<SigunguVO> selectKinds(SigunguVO sigunguVO) throws Exception;
 
 
 }

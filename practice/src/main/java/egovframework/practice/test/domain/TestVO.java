@@ -4,8 +4,9 @@ public class TestVO {
 
 	private String kinds;
 	private int no;
-	private String gun;
-	private String gu;
+	private String si;
+	private String gungu;
+	private String dong;
 	private int bTotal;
 	private int bActual;
 	private int bIe;
@@ -43,20 +44,28 @@ public class TestVO {
 		this.kinds = kinds;
 	}
 
-	public String getGun() {
-		return gun;
+	public String getSi() {
+		return si;
 	}
 
-	public void setGun(String gun) {
-		this.gun = gun;
+	public void setSi(String si) {
+		this.si = si;
 	}
 
-	public String getGu() {
-		return gu;
+	public String getGungu() {
+		return gungu;
 	}
 
-	public void setGu(String gu) {
-		this.gu = gu;
+	public void setGungu(String gungu) {
+		this.gungu = gungu;
+	}
+
+	public String getDong() {
+		return dong;
+	}
+
+	public void setDong(String dong) {
+		this.dong = dong;
 	}
 
 	public int getbTotal() {

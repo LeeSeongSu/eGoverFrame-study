@@ -10,13 +10,41 @@
 		FROM test
 	</select>
 
+	<select id="selectKinds" resultType="SigunguVO">
+		SELECT
+		distinct kinds
+		FROM
+		sigungu
+		order by kinds asc
+	</select>
 
+	<select id="selectSi" resultType="SigunguVO">
+		SELECT
+		distinct si
+		FROM
+		sigungu
+		order by si asc
+	</select>
+
+	<select id="selectGungu" resultType="SigunguVO">
+		SELECT
+		distinct gungu
+		FROM
+		sigungu order by gungu asc
+	</select>
+
+	<select id="selectDong" resultType="SigunguVO">
+		SELECT
+		distinct dong
+		FROM
+		sigungu order by dong asc
+	</select>
 	<!--게시글 삽입 -->
 	<insert id="insertTest" parameterType="TestVO">
 		<![CDATA[
 		INSERT INTO test
-("bTotal", "bActual", "bIe", "bIndomi", "bEtc", "bUnme", "bEvalue", "aTotal", "aActual", "aIe",  "aIndomi", "aEtc", "aUnme", "aEvalue", kinds, gun, gu, "no", "name", "phoneNumber", "bEtcEx", "aEtcEx")
-VALUES(#{bTotal},#{bActual},#{bIe},#{bIndomi},#{bEtc},#{bUnme}, #{bEvalue},  #{aTotal}, #{aActual}, #{aIe},  #{aIndomi},#{aEtc}, #{aUnme}, #{aEvalue}, #{kinds},#{gun},#{gu}, #{no}, #{name},#{phoneNumber}, #{bEtcEx}, #{aEtcEx})
+("bTotal", "bActual", "bIe", "bIndomi", "bEtc", "bUnme", "bEvalue", "aTotal", "aActual", "aIe",  "aIndomi", "aEtc", "aUnme", "aEvalue", kinds, si, gungu, "name", "phoneNumber", "bEtcEx", "aEtcEx")
+VALUES(#{bTotal},#{bActual},#{bIe},#{bIndomi},#{bEtc},#{bUnme}, #{bEvalue},  #{aTotal}, #{aActual}, #{aIe},  #{aIndomi},#{aEtc}, #{aUnme}, #{aEvalue}, #{kinds},#{si},#{gungu}, #{name},#{phoneNumber}, #{bEtcEx}, #{aEtcEx})
 		
 		]]>
 	</insert>
@@ -35,20 +63,20 @@ VALUES(#{bTotal},#{bActual},#{bIe},#{bIndomi},#{bEtc},#{bUnme}, #{bEvalue},  #{a
 	<!--게시글 업데이트 -->
 	<update id="updateTest">
 		update test set
-		 "name" = #{name}
+		"name" = #{name}
 		,"phoneNumber" = #{phoneNumber}
 		,"bEtcEx" = #{bEtcEx}
 		,"aEtcEx" = #{aEtcEx}
 		,"kinds" = #{kinds}
-		,"gun" = #{gun}
-		,"gu" = #{gu}
+		,"si" = #{si}
+		,"gungu" = #{gungu}
 		,"bTotal" = #{bTotal}
 		,"bActual" = #{bActual}
-		,"bIe" = #{bIe}
-		,"bIndomi" = #{bIndomi}
+		,"bIe"= #{bIe}
+		,"bIndomi"= #{bIndomi}
 		,"bEtc" = #{bEtc}
 		,"bUnme" = #{bUnme}
-		,"bEvalue" = #{bEvalue}
+		,"bEvalue" =#{bEvalue}
 		<!-- ,"bStatus" = #{bStatus} -->
 		,"aTotal" = #{aTotal}
 		,"aActual" = #{aActual}
@@ -57,7 +85,8 @@ VALUES(#{bTotal},#{bActual},#{bIe},#{bIndomi},#{bEtc},#{bUnme}, #{bEvalue},  #{a
 		,"aIndomi" = #{aIndomi}
 		,"aEtc" = #{aEtc}
 		,"aUnme" = #{aUnme}
-		,"aEvalue" = #{aEvalue}
+		,"aEvalue"
+		= #{aEvalue}
 		where "no" = #{no}
 	</update>
 

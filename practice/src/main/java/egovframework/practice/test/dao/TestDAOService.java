@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import egovframework.practice.test.domain.SigunguVO;
 import egovframework.practice.test.domain.TestVO;
 import egovframework.practice.test.service.TestMapper;
 
@@ -17,6 +18,7 @@ public class TestDAOService implements TestDAO {
 
 	public List<TestVO> selectTest(TestVO testVO) throws Exception {
 		TestMapper mapper = sqlSession.getMapper(TestMapper.class);
+
 		return mapper.selectTest(testVO);
 	}
 
@@ -43,5 +45,38 @@ public class TestDAOService implements TestDAO {
 		TestMapper mapper = sqlSession.getMapper(TestMapper.class);
 		mapper.deleteTest(testVO);
 	}
+
+	@Override
+	public List<SigunguVO> selectSi(SigunguVO sigunguVO) throws Exception {
+
+		TestMapper mapper = sqlSession.getMapper(TestMapper.class);
+
+		return mapper.selectSi(sigunguVO);
+	}
+
+	@Override
+	public List<SigunguVO> selectGungu(SigunguVO sigunguVO) throws Exception {
+
+		TestMapper mapper = sqlSession.getMapper(TestMapper.class);
+
+		return mapper.selectGungu(sigunguVO);
+	}
+
+	@Override
+	public List<SigunguVO> selectDong(SigunguVO sigunguVO) throws Exception {
+
+		TestMapper mapper = sqlSession.getMapper(TestMapper.class);
+
+		return mapper.selectDong(sigunguVO);
+	}
+
+	@Override
+	public List<SigunguVO> selectKinds(SigunguVO sigunguVO) throws Exception{
+		TestMapper mapper = sqlSession.getMapper(TestMapper.class);
+
+		return mapper.selectKinds(sigunguVO);
+	}
+
+
 
 }
