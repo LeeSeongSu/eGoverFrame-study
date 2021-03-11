@@ -28,9 +28,8 @@ public class TestController {
 
 	// 글 작성 클릭시 글 작성 페이지로 이동
 	@RequestMapping(value = "/testRegister.do")
-	public String testRegister(TestVO testVO, SigunguVO sigunguVO, Model model) throws Exception {
+	public String testRegister(SigunguVO sigunguVO, Model model) throws Exception {
 
-		model.addAttribute("list", testServiceImpl.selectTest(testVO));
 		model.addAttribute("si", testServiceImpl.selectSi(sigunguVO));
 		model.addAttribute("gungu", testServiceImpl.selectGungu(sigunguVO));
 		model.addAttribute("dong", testServiceImpl.selectDong(sigunguVO));
@@ -43,38 +42,35 @@ public class TestController {
 	@RequestMapping(value = "/insertTest.do")
 	public String write(@ModelAttribute("testVO") TestVO testVO, RedirectAttributes rttr) throws Exception {
 		testServiceImpl.insertTest(testVO);
-
 		return "redirect:testList.do";
 	}
 
-	// HttpServletRequest 객체안에 모든 데이터들이 들어가는데 getParameter메소드로 bTotal 원하는 데이터 가져옴
-	// 제목 클릭 시 상세보기
-	@RequestMapping(value = "/testDetail.do")
-	public String viewForm(@ModelAttribute("testVO") TestVO testVO, Model model, HttpServletRequest request)
-			throws Exception {
+	// HttpServletRequest 객체안에 모든 데이터들이 들어가는데 getParameter메소드로 testId 원하는 데이터 가져옴
+		// 제목 클릭 시 상세보기
+		@RequestMapping(value = "/testDetail.do")
+		public String viewForm(@ModelAttribute("testVO") TestVO testVO, Model model, HttpServletRequest request)
+				throws Exception {
 
-		int no = Integer.parseInt(request.getParameter("no"));
+			int no = Integer.parseInt(request.getParameter("no"));
+			testVO.setNo(no);
 
-		testVO.setNo(no);
+			TestVO resultVO = testServiceImpl.selectDetail(testVO);
+			model.addAttribute("result", resultVO);
 
-		TestVO resultVO = testServiceImpl.selectDetail(testVO);
-		model.addAttribute("result", resultVO);
-
-		return "test/testDetail";
-	}
+			return "test/testDetail";
+		}
 
 	// 수정하기
-	@RequestMapping(value = "/updateTest.do")
-	public String updateTest(@ModelAttribute("testVO") TestVO testVO, HttpServletRequest request) throws Exception {
-		testServiceImpl.updateTest(testVO);
-		return "redirect:testList.do";
-	}
+		@RequestMapping(value = "/updateTest.do")
+		public String updateTest(@ModelAttribute("testVO") TestVO testVO, HttpServletRequest request) throws Exception {
+			testServiceImpl.updateTest(testVO);
+			return "redirect:testList.do";
+		}
 
-	// 삭제하기
-	@RequestMapping(value = "/deleteTest.do")
-	public String deleteTest(@ModelAttribute("testVO") TestVO testVO) throws Exception {
-		testServiceImpl.deleteTest(testVO);
-		return "redirect:testList.do";
-	}
-
+		// 삭제하기
+		@RequestMapping(value = "/deleteTest.do")
+		public String deleteTest(@ModelAttribute("testVO") TestVO testVO) throws Exception {
+			testServiceImpl.deleteTest(testVO);
+			return "redirect:testList.do";
+		}
 }

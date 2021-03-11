@@ -29,14 +29,17 @@
 
 </head>
 <body>
+
 	<div class="container">
 		<form action="updateTest.do" id="viewForm" method="post"
 			encType="multiplart/form-data">
 			<table class="table table-bordered">
+
 				<thead>
 					<h3>기본정보</h3>
 				</thead>
 				<tbody>
+
 					<tr>
 						<th>기관</th>
 						<td><select name="si" class="form-control form-control-sm">
@@ -199,10 +202,7 @@
 				style="float: right;">삭제</button>
 			<button id="btn_previous" type="button" class="btn_previous"
 				style="float: right;">이전</button>
-
-
 		</form>
-
 	</div>
 
 </body>
@@ -228,39 +228,6 @@
 		$(location).attr('href', 'testList.do');
 
 	});
-
-	function addRow() {
-		// table element 찾기
-		const table = document.getElementById('unmeTable');
-
-		// 새 행(Row) 추가 (테이블 중간에)
-		const newRow = table.insertRow(1);
-
-		// 새 행(Row)에 Cell 추가
-		const newCell1 = newRow.insertCell(0);
-		const newCell2 = newRow.insertCell(1);
-		const newCell3 = newRow.insertCell(2);
-		const newCell4 = newRow.insertCell(3);
-		const newCell5 = newRow.insertCell(4);
-
-		// Cell에 텍스트 추가
-		newCell1.innerHTML = "<input type='checkbox'>";
-		newCell2.innerHTML = "<input type='text' />";
-		newCell3.innerHTML = "<select class='form-control form-control-sm'><option><c:out value='${result.si}' /></option></select>";
-		newCell4.innerHTML = "<select class='form-control form-control-sm'><option><c:out value='${result.gungu}' /></option></select>";
-		newCell5.innerHTML = "<select class='form-control form-control-sm'><option><c:out value='${result.dong}' /></option></select>";
-	}
-
-	function delRow() {
-		var tableData = document.getElementById('unmeTable');
-		for (var i = 1; i < tableData.rows.length; i++) {s
-			var chkbox = tableData.rows[i].cells[0].childNodes[0].checked;
-
-			if (chkbox) {
-				tableData.deleteRow(i);
-				i--;
-			}
-		}
-	}
 </script>
+
 </html>

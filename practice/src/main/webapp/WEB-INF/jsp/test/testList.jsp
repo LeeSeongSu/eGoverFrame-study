@@ -42,11 +42,12 @@
 						<th>단순이기</th>
 						<th>기타</th>
 					</tr>
+
 					<c:forEach var="result" items="${list}" varStatus="status">
 						<tr>
 
 							<td rowspan="2" align="center" class="listtd"><c:out
-									value="${result.kinds}" />&nbsp;</td>
+									value="${result.no}" />&nbsp;</td>
 							<td rowspan="2" align="center" class="listtd"><c:out
 									value="${result.si}" />&nbsp;</td>
 							<td rowspan="2" align="center" class="listtd"><c:out
@@ -69,7 +70,7 @@
 							<td align="center" class="listtd"><c:out
 									value="${result.bStatus}" />&nbsp;</td>
 
-						
+
 							<td rowspan="2">
 								<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 									<a href='#' onclick='fn_view(${result.no})' />
@@ -94,8 +95,8 @@
 										value="${result.aEvalue}" />&nbsp;</td>
 								<td align="center" class="listtd"><c:out
 										value="${result.aStatus}" />&nbsp;</td>
-								
-								
+
+
 							</tr>
 
 						</tr>
@@ -103,13 +104,11 @@
 				</table>
 			</form>
 		</div>
-
+		<div>
+			<button id="btn_write" type="button" style="float: right;"btn_write">글작성</button>
+		</div>
 	</div>
-	<div>
-		<button id="btn_write" type="button" style="float: right;"btn_write">글작성</button>
-	</div>
 
-</body>
 <script type="text/javascript">
 	//글 작성 버튼 클릭 시 testRegister로 이동
  	$("#btn_write").click(function javascript_onclikc() {
@@ -118,7 +117,7 @@
 	}); 
 	
 	//글조회
-	//	어떤 게시물을 클릭했는지 게시물의 번호(gu)를 넘겨 줘야 함 따라서 게시물 클릭 이벤트에서 게시물의 번호를 인자 값으로 받습니다.
+	//	어떤 게시물을 클릭했는지 게시물의 번호(no)를 넘겨 줘야 함 따라서 게시물 클릭 이벤트에서 게시물의 번호를 인자 값으로 받습니다.
 	//  get 방식으로 데이터를 전송합니다. 따라서 ? 연산자를 사용해 gu를 주소 뒤에 붙여 줍니다
 	function fn_view(no) {
 
@@ -130,4 +129,6 @@
 		form.submit();
 	}
 </script>
+</body>
+
 </html>

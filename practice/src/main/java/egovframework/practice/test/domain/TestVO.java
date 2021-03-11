@@ -1,7 +1,7 @@
 package egovframework.practice.test.domain;
 
 public class TestVO {
-
+	
 	private String kinds;
 	private int no;
 	private String si;
@@ -28,20 +28,20 @@ public class TestVO {
 	private String name;
 	private String phoneNumber;
 
-	public int getNo() {
-		return no;
-	}
-
-	public void setNo(int no) {
-		this.no = no;
-	}
-
 	public String getKinds() {
 		return kinds;
 	}
 
 	public void setKinds(String kinds) {
 		this.kinds = kinds;
+	}
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
 	}
 
 	public String getSi() {
@@ -227,5 +227,7 @@ public class TestVO {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
+
 
 }

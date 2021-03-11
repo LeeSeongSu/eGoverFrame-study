@@ -71,12 +71,10 @@ public class TestDAOService implements TestDAO {
 	}
 
 	@Override
-	public List<SigunguVO> selectKinds(SigunguVO sigunguVO) throws Exception{
+	public List<SigunguVO> selectKinds(SigunguVO sigunguVO) throws Exception {
 		TestMapper mapper = sqlSession.getMapper(TestMapper.class);
 
 		return mapper.selectKinds(sigunguVO);
 	}
-
-
 
 }

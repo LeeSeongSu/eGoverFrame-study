@@ -1,118 +1,255 @@
-CREATE MEMORY TABLE SAMPLE(ID VARCHAR(16) NOT NULL PRIMARY KEY,NAME VARCHAR(50),DESCRIPTION VARCHAR(100),USE_YN CHAR(1),REG_USER VARCHAR(10))
-CREATE MEMORY TABLE IDS(TABLE_NAME VARCHAR(16) NOT NULL PRIMARY KEY,NEXT_ID DECIMAL(30) NOT NULL)
-SET SCHEMA PUBLIC
-INSERT INTO SAMPLE VALUES('SAMPLE-00001','Runtime Environment','Foundation Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00002','Runtime Environment','Persistence Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00003','Runtime Environment','Presentation Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00004','Runtime Environment','Business Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00005','Runtime Environment','Batch Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00006','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00007','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00008','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00009','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00010','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00011','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00012','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00013','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00014','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00015','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00016','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00017','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00018','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00019','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00020','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00021','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00022','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00023','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00024','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00025','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00026','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00027','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00028','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00029','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00030','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00031','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00032','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00033','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00034','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00035','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00036','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00037','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00038','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00039','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00040','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00041','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00042','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00043','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00044','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00045','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00046','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00047','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00048','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00049','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00050','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00051','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00052','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00053','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00054','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00055','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00056','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00057','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00058','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00059','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00060','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00061','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00062','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00063','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00064','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00065','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00066','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00067','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00068','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00069','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00070','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00071','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00072','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00073','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00074','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00075','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00076','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00077','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00078','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00079','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00080','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00081','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00082','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00083','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00084','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00085','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00086','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00087','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00088','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00089','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00090','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00091','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00092','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00093','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00094','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00095','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00096','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00097','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00098','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00099','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00100','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00101','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00102','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00103','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00104','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00105','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00106','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00107','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00108','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00109','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00110','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00111','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00112','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00113','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO SAMPLE VALUES('SAMPLE-00114','Runtime Environment','Integration Layer','Y','eGov')
-INSERT INTO IDS VALUES('SAMPLE',115)
+INSERT INTO test ("phoneNumber" , si, gungu) VALUES
+(1, '서울', '종로구'),
+(2, '서울', '중구'),
+(3, '서울', '용산구'),
+(4, '서울', '성동구'),
+(5, '서울', '광진구'),
+(6, '서울', '동대문구'),
+(7, '서울', '중랑구'),
+(8, '서울', '성북구'),
+(9, '서울', '강북구'),
+(10, '서울', '도봉구'),
+(11, '서울', '노원구'),
+(12, '서울', '은평구'),
+(13, '서울', '서대문구'),
+(14, '서울', '마포구'),
+(15, '서울', '양천구'),
+(16, '서울', '강서구'),
+(17, '서울', '구로구'),
+(18, '서울', '금천구'),
+(19, '서울', '영등포구'),
+(20, '서울', '동작구'),
+(21, '서울', '관악구'),
+(22, '서울', '서초구'),
+(23, '서울', '강남구'),
+(24, '서울', '송파구'),
+(25, '서울', '강동구'),
+(26, '부산', '중구'),
+(27, '부산', '서구'),
+(28, '부산', '동구'),
+(29, '부산', '영도구'),
+(30, '부산', '부산진구'),
+(31, '부산', '동래구'),
+(32, '부산', '남구'),
+(33, '부산', '북구'),
+(34, '부산', '해운대구'),
+(35, '부산', '사하구'),
+(36, '부산', '금정구'),
+(37, '부산', '강서구'),
+(38, '부산', '연제구'),
+(39, '부산', '수영구'),
+(40, '부산', '사상구'),
+(41, '부산', '기장군'),
+(42, '대구', '중구'),
+(43, '대구', '동구'),
+(44, '대구', '서구'),
+(45, '대구', '남구'),
+(46, '대구', '북구'),
+(47, '대구', '수성구'),
+(48, '대구', '달서구'),
+(49, '대구', '달성군'),
+(50, '인천', '중구'),
+(51, '인천', '동구'),
+(52, '인천', '미추홀구'),
+(53, '인천', '연수구'),
+(54, '인천', '남동구'),
+(55, '인천', '부평구'),
+(56, '인천', '계양구'),
+(57, '인천', '서구'),
+(58, '인천', '강화군'),
+(59, '인천', '옹진군'),
+(60, '광주', '동구'),
+(61, '광주', '서구'),
+(62, '광주', '남구'),
+(63, '광주', '북구'),
+(64, '광주', '광산구'),
+(65, '대전', '동구'),
+(66, '대전', '중구'),
+(67, '대전', '서구'),
+(68, '대전', '유성구'),
+(69, '대전', '대덕구'),
+(70, '울산', '중구'),
+(71, '울산', '남구'),
+(72, '울산', '동구'),
+(73, '울산', '북구'),
+(74, '울산', '울주군'),
+(75, '세종', '반곡동'),
+(76, '세종', '소담동'),
+(77, '세종', '보람동'),
+(78, '세종', '대평동'),
+(79, '세종', '가람동'),
+(80, '세종', '한솔동'),
+(81, '세종', '나성동'),
+(82, '세종', '새롬동'),
+(83, '세종', '다정동'),
+(84, '세종', '어진동'),
+(85, '세종', '종촌동'),
+(86, '세종', '고운동'),
+(87, '세종', '아름동'),
+(88, '세종', '도담동'),
+(89, '세종', '조치원읍'),
+(90, '세종', '연기면'),
+(91, '세종', '연동면'),
+(92, '세종', '부강면'),
+(93, '세종', '금남면'),
+(94, '세종', '장군면'),
+(95, '세종', '연서면'),
+(96, '세종', '전의면'),
+(97, '세종', '전동면'),
+(98, '세종', '소정면'),
+(99, '경기', '수원시'),
+(100, '경기', '성남시'),
+(101, '경기', '의정부시'),
+(102, '경기', '안양시'),
+(103, '경기', '부천시'),
+(104, '경기', '광명시'),
+(105, '경기', '평택시'),
+(106, '경기', '동두천시'),
+(107, '경기', '안산시'),
+(108, '경기', '고양시'),
+(109, '경기', '과천시'),
+(110, '경기', '구리시'),
+(111, '경기', '남양주시'),
+(112, '경기', '오산시'),
+(113, '경기', '시흥시'),
+(114, '경기', '군포시'),
+(115, '경기', '의왕시'),
+(116, '경기', '하남시'),
+(117, '경기', '용인시'),
+(118, '경기', '파주시'),
+(119, '경기', '이천시'),
+(120, '경기', '안성시'),
+(121, '경기', '김포시'),
+(122, '경기', '화성시'),
+(123, '경기', '광주시'),
+(124, '경기', '양주시'),
+(125, '경기', '포천시'),
+(126, '경기', '여주시'),
+(127, '경기', '연천군'),
+(128, '경기', '가평군'),
+(129, '경기', '양평군'),
+(130, '강원', '춘천시'),
+(131, '강원', '원주시'),
+(132, '강원', '강릉시'),
+(133, '강원', '동해시'),
+(134, '강원', '태백시'),
+(135, '강원', '속초시'),
+(136, '강원', '삼척시'),
+(137, '강원', '홍천군'),
+(138, '강원', '횡성군'),
+(139, '강원', '영월군'),
+(140, '강원', '평창군'),
+(141, '강원', '정선군'),
+(142, '강원', '철원군'),
+(143, '강원', '화천군'),
+(144, '강원', '양구군'),
+(145, '강원', '인제군'),
+(146, '강원', '고성군'),
+(147, '강원', '양양군'),
+(148, '충북', '청주시'),
+(149, '충북', '충주시'),
+(150, '충북', '제천시'),
+(151, '충북', '보은군'),
+(152, '충북', '옥천군'),
+(153, '충북', '영동군'),
+(154, '충북', '증평군'),
+(155, '충북', '진천군'),
+(156, '충북', '괴산군'),
+(157, '충북', '음성군'),
+(158, '충북', '단양군'),
+(159, '충남', '천안시'),
+(160, '충남', '공주시'),
+(161, '충남', '보령시'),
+(162, '충남', '아산시'),
+(163, '충남', '서산시'),
+(164, '충남', '논산시'),
+(165, '충남', '계룡시'),
+(166, '충남', '당진시'),
+(167, '충남', '금산군'),
+(168, '충남', '부여군'),
+(169, '충남', '서천군'),
+(170, '충남', '청양군'),
+(171, '충남', '홍성군'),
+(172, '충남', '예산군'),
+(173, '충남', '태안군'),
+(174, '전북', '전주시'),
+(175, '전북', '군산시'),
+(176, '전북', '익산시'),
+(177, '전북', '정읍시'),
+(178, '전북', '남원시'),
+(179, '전북', '김제시'),
+(180, '전북', '완주군'),
+(181, '전북', '진안군'),
+(182, '전북', '무주군'),
+(183, '전북', '장수군'),
+(184, '전북', '임실군'),
+(185, '전북', '순창군'),
+(186, '전북', '고창군'),
+(187, '전북', '부안군'),
+(188, '전남', '목포시'),
+(189, '전남', '여수시'),
+(190, '전남', '순천시'),
+(191, '전남', '나주시'),
+(192, '전남', '광양시'),
+(193, '전남', '담양군'),
+(194, '전남', '곡성군'),
+(195, '전남', '구례군'),
+(196, '전남', '고흥군'),
+(197, '전남', '보성군'),
+(198, '전남', '화순군'),
+(199, '전남', '장흥군'),
+(200, '전남', '강진군'),
+(201, '전남', '해남군'),
+(202, '전남', '영암군'),
+(203, '전남', '무안군'),
+(204, '전남', '함평군'),
+(205, '전남', '영광군'),
+(206, '전남', '장성군'),
+(207, '전남', '완도군'),
+(208, '전남', '진도군'),
+(209, '전남', '신안군'),
+(210, '경북', '포항시'),
+(211, '경북', '경주시'),
+(212, '경북', '김천시'),
+(213, '경북', '안동시'),
+(214, '경북', '구미시'),
+(215, '경북', '영주시'),
+(216, '경북', '영천시'),
+(217, '경북', '상주시'),
+(218, '경북', '문경시'),
+(219, '경북', '경산시'),
+(220, '경북', '군위군'),
+(221, '경북', '의성군'),
+(222, '경북', '청송군'),
+(223, '경북', '영양군'),
+(224, '경북', '영덕군'),
+(225, '경북', '청도군'),
+(226, '경북', '고령군'),
+(227, '경북', '성주군'),
+(228, '경북', '칠곡군'),
+(229, '경북', '예천군'),
+(230, '경북', '봉화군'),
+(231, '경북', '울진군'),
+(232, '경북', '울릉군'),
+(233, '경남', '창원시'),
+(234, '경남', '진주시'),
+(235, '경남', '통영시'),
+(236, '경남', '사천시'),
+(237, '경남', '김해시'),
+(238, '경남', '밀양시'),
+(239, '경남', '거제시'),
+(240, '경남', '양산시'),
+(241, '경남', '의령군'),
+(242, '경남', '함안군'),
+(243, '경남', '창녕군'),
+(244, '경남', '고성군'),
+(245, '경남', '남해군'),
+(246, '경남', '하동군'),
+(247, '경남', '산청군'),
+(248, '경남', '함양군'),
+(249, '경남', '거창군'),
+(250, '경남', '합천군'),
+(251, '제주', '제주시'),
+(252, '제주', '서귀포시')
+
+te serial초기화

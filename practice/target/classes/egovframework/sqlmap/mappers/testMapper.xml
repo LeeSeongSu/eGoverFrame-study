@@ -1,49 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper
 	namespace="egovframework.practice.test.service.TestMapper">
 
 	<select id="selectTest" resultType="TestVO">
-		SELECT
+		select
 		*
-		FROM test
+		from test
 	</select>
 
 	<select id="selectKinds" resultType="SigunguVO">
-		SELECT
+		select
 		distinct kinds
-		FROM
+		from
 		sigungu
 		order by kinds asc
 	</select>
 
 	<select id="selectSi" resultType="SigunguVO">
-		SELECT
+		select
 		distinct si
-		FROM
+		from
 		sigungu
 		order by si asc
 	</select>
 
 	<select id="selectGungu" resultType="SigunguVO">
-		SELECT
+		select
 		distinct gungu
-		FROM
+		from
 		sigungu order by gungu asc
 	</select>
 
 	<select id="selectDong" resultType="SigunguVO">
-		SELECT
+		select
 		distinct dong
-		FROM
+		from
 		sigungu order by dong asc
 	</select>
 	<!--게시글 삽입 -->
 	<insert id="insertTest" parameterType="TestVO">
 		<![CDATA[
-		INSERT INTO test
-("bTotal", "bActual", "bIe", "bIndomi", "bEtc", "bUnme", "bEvalue", "aTotal", "aActual", "aIe",  "aIndomi", "aEtc", "aUnme", "aEvalue", kinds, si, gungu, "name", "phoneNumber", "bEtcEx", "aEtcEx")
+		insert into test
+("bTotal","bActual","bIe","bIndomi","bEtc","bUnme","bEvalue","aTotal","aActual","aIe","aIndomi","aEtc","aUnme","aEvalue","kinds","si","gungu","name","phoneNumber","bEtcEx","aEtcEx")
 VALUES(#{bTotal},#{bActual},#{bIe},#{bIndomi},#{bEtc},#{bUnme}, #{bEvalue},  #{aTotal}, #{aActual}, #{aIe},  #{aIndomi},#{aEtc}, #{aUnme}, #{aEvalue}, #{kinds},#{si},#{gungu}, #{name},#{phoneNumber}, #{bEtcEx}, #{aEtcEx})
 		
 		]]>
@@ -54,47 +53,52 @@ VALUES(#{bTotal},#{bActual},#{bIe},#{bIndomi},#{bEtc},#{bUnme}, #{bEvalue},  #{a
 		parameterType="egovframework.practice.test.domain.TestVO"
 		resultType="egovframework.practice.test.domain.TestVO">
 		<![CDATA[
-			SELECT *
-			FROM test
-			WHERE "no" = #{no}
+			select *
+			from test
+			where "no" = #{no}
 		]]>
 	</select>
 
 	<!--게시글 업데이트 -->
 	<update id="updateTest">
-		update test set
-		"name" = #{name}
-		,"phoneNumber" = #{phoneNumber}
-		,"bEtcEx" = #{bEtcEx}
-		,"aEtcEx" = #{aEtcEx}
-		,"kinds" = #{kinds}
-		,"si" = #{si}
-		,"gungu" = #{gungu}
-		,"bTotal" = #{bTotal}
-		,"bActual" = #{bActual}
-		,"bIe"= #{bIe}
-		,"bIndomi"= #{bIndomi}
-		,"bEtc" = #{bEtc}
-		,"bUnme" = #{bUnme}
-		,"bEvalue" =#{bEvalue}
-		<!-- ,"bStatus" = #{bStatus} -->
-		,"aTotal" = #{aTotal}
-		,"aActual" = #{aActual}
-		,"aIe" = #{aIe}
-		<!-- ,"aStatus" = #{aStatus} -->
-		,"aIndomi" = #{aIndomi}
-		,"aEtc" = #{aEtc}
-		,"aUnme" = #{aUnme}
-		,"aEvalue"
-		= #{aEvalue}
-		where "no" = #{no}
+
+		UPDATE test
+		SET
+		"bTotal"=#{bTotal},
+		"bActual"=#{bActual},
+		"bIe"=#{bIe},
+		"bIndomi"=#{bIndomi},
+		"bEtc"=#{bEtc},
+		"bUnme"=#{bUnme},
+		"bEvalue"=#{bEvalue},
+		"bStatus"=#{bStatus},
+		"aTotal"=#{aTotal},
+		"aActual"=#{aActual},
+		"aIe"=#{aIe},
+		"aStatus"=#{aStatus},
+		"aIndomi"=#{aIndomi},
+		"aEtc"=#{aEtc},
+		"aUnme"=#{aUnme},
+		"aEvalue"=#{aEvalue},
+		kinds=#{kinds},
+		si=#{si},
+		gungu=#{gungu},
+		"name"=#{name},
+		"phoneNumber"=#{phoneNumber},
+		"bEtcEx"=#{bEtcEx},
+		"aEtcEx"=#{aEtcEx},
+		dong=#{dong}
+		where "no"= #{no}
+
+
 	</update>
 
 	<!--게시글 삭제 -->
 	<delete id="deleteTest">
+	<![CDATA[
 		delete from test
-		where
-		"no" = #{no}
+		where "no" = #{no}
+		]]>
 	</delete>
 
 </mapper> 
