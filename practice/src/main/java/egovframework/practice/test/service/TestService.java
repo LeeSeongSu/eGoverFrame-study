@@ -2,12 +2,16 @@ package egovframework.practice.test.service;
 
 import java.util.List;
 
+import egovframework.practice.test.domain.Search;
 import egovframework.practice.test.domain.SigunguVO;
 import egovframework.practice.test.domain.TestVO;
 
 public interface TestService {
 
-	public List<TestVO> selectTest(TestVO testVO) throws Exception;
+	public List<TestVO> selectTest(Search search) throws Exception;
+
+	// 총 게시글 개수 확인
+	public int getBoardListCnt(Search search) throws Exception;
 
 	public void insertTest(TestVO testVO) throws Exception;
 
@@ -24,7 +28,5 @@ public interface TestService {
 	public List<SigunguVO> selectDong(SigunguVO sigunguVO) throws Exception;
 
 	public List<SigunguVO> selectKinds(SigunguVO sigunguVO) throws Exception;
-
-	
 
 }

@@ -1,9 +1,11 @@
 package egovframework.practice.test.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class TestVO {
-	
-	private String kinds;
+
 	private int no;
+	private String kinds;
 	private String si;
 	private String gungu;
 	private String dong;
@@ -27,6 +29,7 @@ public class TestVO {
 	private String aEtcEx;
 	private String name;
 	private String phoneNumber;
+	
 
 	public String getKinds() {
 		return kinds;

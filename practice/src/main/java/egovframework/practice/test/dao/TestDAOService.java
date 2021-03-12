@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import egovframework.practice.test.domain.Search;
 import egovframework.practice.test.domain.SigunguVO;
 import egovframework.practice.test.domain.TestVO;
 import egovframework.practice.test.service.TestMapper;
@@ -16,12 +17,20 @@ public class TestDAOService implements TestDAO {
 	@Autowired
 	private SqlSession sqlSession;
 
-	public List<TestVO> selectTest(TestVO testVO) throws Exception {
+	public List<TestVO> selectTest(Search search) throws Exception {
 		TestMapper mapper = sqlSession.getMapper(TestMapper.class);
 
-		return mapper.selectTest(testVO);
+		return mapper.selectTest(search);
 	}
 
+	// 총 게시글 개수 확인
+	@Override
+	public int getBoardListCnt(Search search) throws Exception {
+		TestMapper mapper = sqlSession.getMapper(TestMapper.class);
+		return mapper.getBoardListCnt(search);
+	}
+
+	
 	@Override
 	public void insertTest(TestVO testVO) throws Exception {
 		TestMapper mapper = sqlSession.getMapper(TestMapper.class);
@@ -76,5 +85,6 @@ public class TestDAOService implements TestDAO {
 
 		return mapper.selectKinds(sigunguVO);
 	}
+
 
 }

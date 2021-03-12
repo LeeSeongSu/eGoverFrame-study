@@ -15,22 +15,9 @@
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
 	crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-	crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-	crossorigin="anonymous"></script>
-
 </head>
 <body>
 	<div class="container">
@@ -146,9 +133,7 @@
 						</select></td>
 						<td>첨부파일(비 측량 데이터)</td>
 						<td>
-							<div class="mb-3">
-								<input class="form-control" type="file" id="formFile">
-							</div>
+							
 						</td>
 					</tr>
 				</tbody>
@@ -207,52 +192,52 @@
 		</form>
 
 	</div>
+	<script type="text/javascript">
+		//글쓰기
 
-</body>
-<script type="text/javascript">
-	//글쓰기
+		$(document).on('click', '#btn_register', function(e) {
+			$("#form_test").submit();
+		});
 
-	$(document).on('click', '#btn_register', function(e) {
-		$("#form_test").submit();
-	});
+		//이전 클릭 시 testList로 이동
+		$("#btn_previous").click(function javascript_onclikc() {
+			$(location).attr('href', 'testList.do');
+		});
 
-	//이전 클릭 시 testList로 이동
-	$("#btn_previous").click(function javascript_onclikc() {
-		$(location).attr('href', 'testList.do');
-	});
+		function addRow() {
+			// table element 찾기
+			const table = document.getElementById('unmeTable');
 
-	function addRow() {
-		// table element 찾기
-		const table = document.getElementById('unmeTable');
+			// 새 행(Row) 추가 (테이블 중간에)
+			const newRow = table.insertRow(1);
 
-		// 새 행(Row) 추가 (테이블 중간에)
-		const newRow = table.insertRow(1);
+			// 새 행(Row)에 Cell 추가
+			const newCell1 = newRow.insertCell(0);
+			const newCell2 = newRow.insertCell(1);
+			const newCell3 = newRow.insertCell(2);
+			const newCell4 = newRow.insertCell(3);
+			const newCell5 = newRow.insertCell(4);
 
-		// 새 행(Row)에 Cell 추가
-		const newCell1 = newRow.insertCell(0);
-		const newCell2 = newRow.insertCell(1);
-		const newCell3 = newRow.insertCell(2);
-		const newCell4 = newRow.insertCell(3);
-		const newCell5 = newRow.insertCell(4);
+			// Cell에 텍스트 추가
+			newCell1.innerHTML = "<input type='checkbox'>";
+			newCell2.innerHTML = "<input type='text' />";
+			newCell3.innerHTML = "<select class='form-control form-control-sm'><c:forEach var='result' items='${list}' varStatus='status'><option><c:out value='${result.si}' /></option></c:forEach></select>";
+			newCell4.innerHTML = "<select class='form-control form-control-sm'><c:forEach var='result' items='${list}' varStatus='status'><option><c:out value='${result.gungu}' /></option></c:forEach></select>";
+			newCell5.innerHTML = "<select class='form-control form-control-sm'><c:forEach var='result' items='${list}' varStatus='status'><option><c:out value='${result.dong}' /></option></c:forEach></select>";
+		}
 
-		// Cell에 텍스트 추가
-		newCell1.innerHTML = "<input type='checkbox'>";
-		newCell2.innerHTML = "<input type='text' />";
-		newCell3.innerHTML = "<select class='form-control form-control-sm'><c:forEach var='result' items='${list}' varStatus='status'><option><c:out value='${result.si}' /></option></c:forEach></select>";
-		newCell4.innerHTML = "<select class='form-control form-control-sm'><c:forEach var='result' items='${list}' varStatus='status'><option><c:out value='${result.gungu}' /></option></c:forEach></select>";
-		newCell5.innerHTML = "<select class='form-control form-control-sm'><c:forEach var='result' items='${list}' varStatus='status'><option><c:out value='${result.dong}' /></option></c:forEach></select>";
-	}
+		function delRow() {
+			var tableData = document.getElementById('unmeTable');
+			for (var i = 1; i < tableData.rows.length; i++) {
+				var chkbox = tableData.rows[i].cells[0].childNodes[0].checked;
 
-	function delRow() {
-		var tableData = document.getElementById('unmeTable');
-		for (var i = 1; i < tableData.rows.length; i++) {
-			var chkbox = tableData.rows[i].cells[0].childNodes[0].checked;
-
-			if (chkbox) {
-				tableData.deleteRow(i);
-				i--;
+				if (chkbox) {
+					tableData.deleteRow(i);
+					i--;
+				}
 			}
 		}
-	}
-</script>
+	</script>
+</body>
+
 </html>

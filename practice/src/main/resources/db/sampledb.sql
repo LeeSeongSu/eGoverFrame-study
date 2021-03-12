@@ -1,4 +1,4 @@
-INSERT INTO test ("phoneNumber" , si, gungu) VALUES
+INSERT INTO test ("phoneNumber",si,gungu) VALUES
 (1, '서울', '종로구'),
 (2, '서울', '중구'),
 (3, '서울', '용산구'),
@@ -252,4 +252,4 @@ INSERT INTO test ("phoneNumber" , si, gungu) VALUES
 (251, '제주', '제주시'),
 (252, '제주', '서귀포시')
 
-te serial초기화
+truncate table test restart identity serial초기화

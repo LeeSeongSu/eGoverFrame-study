@@ -11,21 +11,9 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
 	crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-	crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-	crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -151,6 +139,7 @@
 								<input class="form-control" type="file" id="formFile">
 							</div>
 						</td>
+
 					</tr>
 				</tbody>
 			</table>
@@ -204,30 +193,30 @@
 				style="float: right;">이전</button>
 		</form>
 	</div>
+	<script type="text/javascript">
+		$(document).on('click', '#btn_modify', function(e) {
+			if (confirm("정말 수정하시겠습니까 ?") == true) {
+				$("#viewForm").submit();
+			} else {
+				return;
+			}
+		});
+		$(document).on('click', '#btn_delete', function(e) {
+			if (confirm("정말 삭제하시겠습니까 ?") == true) {
+				$("#viewForm").attr("action", "deleteTest.do");
+				$("#viewForm").submit();
+			} else {
+				return;
+			}
+		});
 
+		//이전 클릭 시 testList로 이동
+		$("#btn_previous").click(function javascript_onclikc() {
+			$(location).attr('href', 'testList.do');
+
+		});
+	</script>
 </body>
-<script type="text/javascript">
-	$(document).on('click', '#btn_modify', function(e) {
-		if (confirm("정말 수정하시겠습니까 ?") == true) {
-			$("#viewForm").submit();
-		} else {
-			return;
-		}
-	});
-	$(document).on('click', '#btn_delete', function(e) {
-		if (confirm("정말 삭제하시겠습니까 ?") == true) {
-			$("#viewForm").attr("action", "deleteTest.do");
-			$("#viewForm").submit();
-		} else {
-			return;
-		}
-	});
 
-	//이전 클릭 시 testList로 이동
-	$("#btn_previous").click(function javascript_onclikc() {
-		$(location).attr('href', 'testList.do');
-
-	});
-</script>
 
 </html>

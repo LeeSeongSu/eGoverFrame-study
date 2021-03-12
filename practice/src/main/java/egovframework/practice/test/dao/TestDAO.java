@@ -2,12 +2,15 @@ package egovframework.practice.test.dao;
 
 import java.util.List;
 
+import egovframework.practice.test.domain.Search;
 import egovframework.practice.test.domain.SigunguVO;
 import egovframework.practice.test.domain.TestVO;
 
 public interface TestDAO {
 
-	List<TestVO> selectTest(TestVO testVO) throws Exception;
+	List<TestVO> selectTest(Search search) throws Exception;
+	
+	public int getBoardListCnt(Search search) throws Exception;
 
 	void insertTest(TestVO testVO) throws Exception;
 
@@ -24,6 +27,8 @@ public interface TestDAO {
 	List<SigunguVO> selectDong(SigunguVO sigunguVO) throws Exception;
 
 	List<SigunguVO> selectKinds(SigunguVO sigunguVO) throws Exception;
+
+	
 
 
 }

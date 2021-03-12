@@ -2,18 +2,18 @@ package egovframework.practice.test.domain;
 
 public class SigunguVO {
 
-	private int no;
+	private int sigungu_no;
 	private String si;
 	private String gungu;
 	private String dong;
 	private String kinds;
 
-	public int getNo() {
-		return no;
+	public int getSigungu_no() {
+		return sigungu_no;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
+	public void setSigungu_no(int sigungu_no) {
+		this.sigungu_no = sigungu_no;
 	}
 
 	public String getSi() {
@@ -47,7 +47,5 @@ public class SigunguVO {
 	public void setKinds(String kinds) {
 		this.kinds = kinds;
 	}
-
-	
 
 }

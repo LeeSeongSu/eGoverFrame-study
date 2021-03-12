@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import egovframework.practice.test.dao.TestDAO;
+import egovframework.practice.test.domain.Search;
 import egovframework.practice.test.domain.SigunguVO;
 import egovframework.practice.test.domain.TestVO;
 import egovframework.practice.test.service.TestService;
@@ -15,13 +16,17 @@ public class TestServiceImpl implements TestService {
 
 	@Autowired
 	private TestDAO testDAOService;
-	
 
 	@Override
-	public List<TestVO> selectTest(TestVO testVO) throws Exception {
-		return testDAOService.selectTest(testVO);
+	public List<TestVO> selectTest(Search search) throws Exception {
+		return testDAOService.selectTest(search);
 	}
 
+	// 총 게시글 개수 확인
+	@Override
+	public int getBoardListCnt(Search search) throws Exception {
+		return testDAOService.getBoardListCnt(search);
+	}
 
 	@Override
 	public void insertTest(TestVO testVO) throws Exception {
@@ -45,12 +50,11 @@ public class TestServiceImpl implements TestService {
 	public void deleteTest(TestVO testVO) throws Exception {
 		testDAOService.deleteTest(testVO);
 	}
-	
+
 	@Override
 	public List<SigunguVO> selectSi(SigunguVO sigunguVO) throws Exception {
 		return testDAOService.selectSi(sigunguVO);
 	}
-
 
 	@Override
 	public List<SigunguVO> selectGungu(SigunguVO sigunguVO) throws Exception {
@@ -62,13 +66,9 @@ public class TestServiceImpl implements TestService {
 		return testDAOService.selectDong(sigunguVO);
 	}
 
-
 	@Override
 	public List<SigunguVO> selectKinds(SigunguVO sigunguVO) throws Exception {
 		return testDAOService.selectKinds(sigunguVO);
 	}
-
-
-	
 
 }
