@@ -4,7 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class TestVO {
 
-	private int no;
+	private int boardId;
 	private String kinds;
 	private String si;
 	private String gungu;
@@ -29,7 +29,6 @@ public class TestVO {
 	private String aEtcEx;
 	private String name;
 	private String phoneNumber;
-	
 
 	public String getKinds() {
 		return kinds;
@@ -39,12 +38,13 @@ public class TestVO {
 		this.kinds = kinds;
 	}
 
-	public int getNo() {
-		return no;
+
+	public int getBoardId() {
+		return boardId;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
+	public void setBoardId(int boardId) {
+		this.boardId = boardId;
 	}
 
 	public String getSi() {
@@ -230,7 +230,5 @@ public class TestVO {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-
-
 
 }

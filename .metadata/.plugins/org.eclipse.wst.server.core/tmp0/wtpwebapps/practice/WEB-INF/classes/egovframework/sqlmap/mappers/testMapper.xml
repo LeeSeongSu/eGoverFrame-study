@@ -3,7 +3,7 @@
 <mapper
 	namespace="egovframework.practice.test.service.TestMapper">
 
-<!--게시글 목록 조회 -->
+	<!--게시글 목록 조회 -->
 	<select id="selectTest" resultType="TestVO">
 		SELECT
 		*
@@ -12,15 +12,17 @@
 			<if test="searchType=='si' and keyword != null and keyword != '' ">
 				AND si like CONCAT('%', #{keyword}, '%')
 			</if>
-			<if test="searchType=='gungu' and keyword != null and keyword != '' ">
+			<if
+				test="searchType=='gungu' and keyword != null and keyword != '' ">
 				AND gungu like CONCAT('%', #{keyword}, '%')
 			</if>
-			<if test="searchType=='kinds' and keyword != null and keyword != '' ">
+			<if
+				test="searchType=='kinds' and keyword != null and keyword != '' ">
 				AND kinds like CONCAT('%', #{keyword}, '%')
 			</if>
 		</trim>
 		ORDER BY
-		no DESC
+		boardId DESC
 		LIMIT #{startList} OFFSET #{listSize}
 	</select>
 
@@ -45,7 +47,7 @@
 			</if>
 		</trim>
 	</select>
-	
+
 	<select id="selectKinds" resultType="SigunguVO">
 		select
 		distinct kinds
@@ -75,7 +77,7 @@
 		from
 		sigungu order by dong asc
 	</select>
-	
+
 	<!--게시글 삽입 -->
 	<insert id="insertTest" parameterType="TestVO">
 		<![CDATA[
@@ -92,7 +94,7 @@ VALUES(#{bTotal},#{bActual},#{bIe},#{bIndomi},#{bEtc},#{bUnme},#{bEvalue},#{aTot
 		<![CDATA[
 			select *
 			from test
-			where "no" = #{no}
+			where no = ${no}
 		]]>
 	</select>
 
@@ -103,7 +105,8 @@ VALUES(#{bTotal},#{bActual},#{bIe},#{bIndomi},#{bEtc},#{bUnme},#{bEvalue},#{aTot
 		SET
 		"bTotal" = #{bTotal},
 		"bActual" = #{bActual},
-		"bIe" = #{bIe},
+		"bIe" =
+		#{bIe},
 		"bIndomi" = #{bIndomi},
 		"bEtc" = #{bEtc},
 		"bUnme" = #{bUnme},
@@ -116,23 +119,23 @@ VALUES(#{bTotal},#{bActual},#{bIe},#{bIndomi},#{bEtc},#{bUnme},#{bEvalue},#{aTot
 		"aIndomi" = #{aIndomi},
 		"aEtc" = #{aEtc},
 		"aUnme" = #{aUnme},
-		"aEvalue" = #{aEvalue},
+		"aEvalue" =
+		#{aEvalue},
 		"kinds" = #{kinds},
 		"si" = #{si},
 		"gungu" = #{gungu},
-		"name" = #{name},
+		"name" =
+		#{name},
 		"phoneNumber" = #{phoneNumber},
 		"bEtcEx" = #{bEtcEx},
 		"aEtcEx" = #{aEtcEx}
-		where "no" = #{no}
+		where no = ${no}
 	</update>
 
 	<!--게시글 삭제 -->
 	<delete id="deleteTest">
-	<![CDATA[
 		delete from test
-		where "no" = #{no}
-		]]>
+		where no = ${no}
 	</delete>
 
 </mapper> 

@@ -252,4 +252,4 @@ INSERT INTO test ("phoneNumber",si,gungu) VALUES
 (251, '제주', '제주시'),
 (252, '제주', '서귀포시')
 
-truncate table test restart identity serial초기화
+truncate table test restart identity

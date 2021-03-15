@@ -76,9 +76,8 @@ public class TestController {
 	public String viewForm(@ModelAttribute("testVO") TestVO testVO, Model model, HttpServletRequest request)
 			throws Exception {
 
-		int no = Integer.parseInt(request.getParameter("no"));
-		testVO.setNo(no);
-
+		int boardId = Integer.parseInt(request.getParameter("boardId"));
+		testVO.setBoardId(boardId);
 		TestVO resultVO = testServiceImpl.selectDetail(testVO);
 		model.addAttribute("result", resultVO);
 
@@ -89,12 +88,14 @@ public class TestController {
 	@RequestMapping(value = "/updateTest.do")
 	public String updateTest(@ModelAttribute("testVO") TestVO testVO, HttpServletRequest request) throws Exception {
 		testServiceImpl.updateTest(testVO);
+		
 		return "redirect:testList.do";
 	}
 
 	// 삭제하기
 	@RequestMapping(value = "/deleteTest.do")
 	public String deleteTest(@ModelAttribute("testVO") TestVO testVO) throws Exception {
+	
 		testServiceImpl.deleteTest(testVO);
 		return "redirect:testList.do";
 	}
