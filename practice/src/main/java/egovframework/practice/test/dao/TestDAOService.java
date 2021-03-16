@@ -23,14 +23,6 @@ public class TestDAOService implements TestDAO {
 		return mapper.selectTest(search);
 	}
 
-	// 총 게시글 개수 확인
-	@Override
-	public int getBoardListCnt(Search search) throws Exception {
-		TestMapper mapper = sqlSession.getMapper(TestMapper.class);
-		return mapper.getBoardListCnt(search);
-	}
-
-	
 	@Override
 	public void insertTest(TestVO testVO) throws Exception {
 		TestMapper mapper = sqlSession.getMapper(TestMapper.class);
@@ -85,6 +77,5 @@ public class TestDAOService implements TestDAO {
 
 		return mapper.selectKinds(sigunguVO);
 	}
-
 
 }

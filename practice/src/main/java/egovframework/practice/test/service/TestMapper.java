@@ -11,8 +11,7 @@ public interface TestMapper {
 	// 게시물 리스트 조회
 	public List<TestVO> selectTest(Search search) throws Exception;
 	
-	public int getBoardListCnt(Search search) throws Exception;
-
+	
 	public void insertTest(TestVO testVO) throws Exception;
 
 	public TestVO selectDetail(TestVO testVO) throws Exception;

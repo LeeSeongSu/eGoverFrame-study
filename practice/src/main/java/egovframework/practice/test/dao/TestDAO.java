@@ -10,7 +10,7 @@ public interface TestDAO {
 
 	List<TestVO> selectTest(Search search) throws Exception;
 	
-	public int getBoardListCnt(Search search) throws Exception;
+	
 
 	void insertTest(TestVO testVO) throws Exception;
 

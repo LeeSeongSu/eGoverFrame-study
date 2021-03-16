@@ -1,10 +1,10 @@
 package egovframework.practice.test.domain;
 
-import org.springframework.web.multipart.MultipartFile;
+import java.util.List;
 
 public class TestVO {
 
-	private int boardId;
+	private int no;
 	private String kinds;
 	private String si;
 	private String gungu;
@@ -29,6 +29,7 @@ public class TestVO {
 	private String aEtcEx;
 	private String name;
 	private String phoneNumber;
+	private List<FileInfoDto> fileInfos;
 
 	public String getKinds() {
 		return kinds;
@@ -38,13 +39,12 @@ public class TestVO {
 		this.kinds = kinds;
 	}
 
-
-	public int getBoardId() {
-		return boardId;
+	public int getNo() {
+		return no;
 	}
 
-	public void setBoardId(int boardId) {
-		this.boardId = boardId;
+	public void setNo(int no) {
+		this.no = no;
 	}
 
 	public String getSi() {
@@ -229,6 +229,14 @@ public class TestVO {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public List<FileInfoDto> getFileInfos() {
+		return fileInfos;
+	}
+
+	public void setFileInfos(List<FileInfoDto> fileInfos) {
+		this.fileInfos = fileInfos;
 	}
 
 }

@@ -6,9 +6,7 @@
 <html>
 <head>
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-	crossorigin="anonymous">
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 <link type="text/css" rel="stylesheet"
 	href="/css/egovframework/sample.css" />
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -20,11 +18,41 @@
 
 	<div id="content_pop">
 
+		<!-- search{s} -->
+		<div class="form-group row justify-content-center">
+
+			<div class="w100" style="padding-right: 10px">
+				<select class="form-control form-control-sm" name="searchType"
+					id="searchType">
+					<option value="si">시</option>
+					<option value="gungu">군구</option>
+					<option value="kinds">종류</option>
+				</select>
+			</div>
+
+			<div class="w300" style="padding-right: 10px">
+				<input type="text"
+					<%-- value="${pagination.keyword}" --%> class="form-control form-control-sm"
+					name="keyword" id="keyword">
+			</div>
+			<button class="btn btn-secondary" name="btnSearch"
+				id="btnSearch">검색</button>
+				<form action="/excelDown.do" method="post">
+				<input type="submit" value="excel">
+				</form>
+		</div>
+		<!-- search{e} -->
+
+		<div>
+			<button id="btn_write" type="button"
+				class="btn btn-secondary" style="float: right;">추가등록</button>
+
+		</div>
 
 		<!-- List -->
 		<div id="table">
 			<form id="boardForm" name="boardForm" method="post">
-				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<table width="100%" border="1" cellpadding="0" cellspacing="0">
 					<tr>
 						<th rowspan="2" colspan="3" align="center">구분</th>
 						<th rowspan="2" colspan="2" align="center">연도</th>
@@ -74,7 +102,7 @@
 							<td rowspan="2">
 								<div class="d-grid gap-2 d-md-flex justify-content-md-center">
 									<a href='#' onclick='fn_view(${result.no})'>
-										<button class="btn btn-primary me-md-2" type="button">상세보기</button>
+										<button class="btn btn-secondary" type="button">상세보기</button>
 									</a>
 								</div>
 							</td>
@@ -97,89 +125,12 @@
 							<td align="center" class="listtd"><c:out
 									value="${result.aStatus}" />&nbsp;</td>
 						</tr>
-						</tr>
+
 					</c:forEach>
 				</table>
 			</form>
 		</div>
-		<div>
-			<button id="btn_write" type="button" class="btn_write">글작성</button>
-		</div>
-		<br>
-		<!-- pagination{s} -->
 
-		<div id="paginationBox">
-			<ul class="pagination">
-
-				<c:if test="${pagination.prev}">
-					<li class="page-item"><a class="page-link" href="#"
-						onclick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}', '${pagination.listSize}'
-					,'${search.searchType}', '${search.keyword}')">이전</a></li>
-				</c:if>
-
-				<c:forEach begin="${pagination.startPage}"
-					end="${pagination.endPage}" var="no">
-
-					<li
-						class="page-item <c:out value="${pagination.page == no ? 'active' : ''}"/> "><a
-						class="page-link" href="#"
-						onclick="fn_pagination('${no}', '${pagination.range}', '${pagination.rangeSize}', '${pagination.listSize}'
-					 ,'${search.searchType}', '${search.keyword}')">
-							${no} </a></li>
-				</c:forEach>
-
-				<c:if test="${pagination.next}">
-
-					<li class="page-item"><a class="page-link" href="#"
-						onclick="fn_next('${pagination.range}', '${pagination.range}', '${pagination.rangeSize}', '${pagination.listSize}'
-					,'${search.searchType}', '${search.keyword}')">다음</a></li>
-				</c:if>
-			</ul>
-		</div>
-		<!-- pagination{e} -->
-
-		<!-- search{s} -->
-		<div class="form-group row justify-content-center">
-
-			<div class="w100" style="padding-right: 10px">
-				<select class="form-control form-control-sm" name="searchType"
-					id="searchType">
-					<option value="si">시</option>
-					<option value="gungu">군구</option>
-					<option value="kinds">종류</option>
-				</select>
-			</div>
-
-			<div class="w300" style="padding-right: 10px">
-				<input type="text"
-					<%-- value="${pagination.keyword}" --%> class="form-control form-control-sm"
-					name="keyword" id="keyword">
-			</div>
-
-			<div>
-				<button class="btn btn-sm btn-primary" name="btnSearch"
-					id="btnSearch">검색</button>
-			</div>
-
-		</div>
-		<!-- search{e} -->
-
-		<!-- 페이지 목록 갯수   -->
-		<div class="form-group row justify-content-center">
-			<p>게시판 목록 갯수</p>
-			<div class="w100" style="padding-right: 10px">
-				<select class="form-control form-control-sm" name="searchType"
-					id="listSize" onchange="page(1)">
-					<option value="10"
-						<c:if test="${pagination.getListSize() == 10 }">selected="selected"</c:if>>10개</option>
-					<option value="15"
-						<c:if test="${pagination.getListSize() == 15 }">selected="selected"</c:if>>15개</option>
-					<option value="20"
-						<c:if test="${pagination.getListSize() == 20 }">selected="selected"</c:if>>20개</option>
-				</select>
-			</div>
-
-		</div>
 	</div>
 
 
@@ -203,55 +154,7 @@
  	   form.action = url;    
  	   form.submit(); 
 	}
-	//이전 버튼 이벤트
-	//5개의 인자값을 가지고 이동 testList.do
-	//무조건 이전페이지 범위의 가장 앞 페이지로 이동
-	function fn_prev(page, range, rangeSize, listSize, searchType, keyword) {
-			
-		var page = ((range - 2) * rangeSize) + 1;
-		var range = range - 1;
-			
-		var url = "/testList.do";
-		url = url + "?page=" + page;
-		url = url + "&range=" + range;
-		url = url + "&listSize=" + listSize;
-		url = url + "&searchType=" + searchType;
-		url = url + "&keyword=" + keyword;
-		location.href = url;
-		}
 
-	  //페이지 번호 클릭
-
-	function fn_pagination(page, range, rangeSize, listSize, searchType, keyword) {
-
-		var url = "/testList.do";
-			url = url + "?page=" + page;
-			url = url + "&range=" + range;
-			url = url + "&listSize=" + listSize;
-			url = url + "&searchType=" + searchType;
-			url = url + "&keyword=" + keyword; 
-
-			location.href = url;	
-		}
-
-		//다음 버튼 이벤트
-		//다음 페이지 범위의 가장 앞 페이지로 이동
-	function fn_next(page, range, rangeSize, listSize, searchType, keyword) {
-		var page = parseInt((range * rangeSize)) + 1;
-		var range = parseInt(range) + 1;			
-		var url = "/testList.do";
-			url = url + "?page=" + page;
-			url = url + "&range=" + range;
-			url = url + "&listSize=" + listSize;
-			url = url + "&searchType=" + searchType;
-			url = url + "&keyword=" + keyword;
-			location.href = url;
-		}
-		
-		
-	/* $는 jQuery를 시작하는 명령어로
-	$(DOM요소) 와 같은 명령어로 각 요소에 접근 할 수 있다.
-	e.preventDefault(); 는 버튼 고유의 기능을 막는 명령어 */ 
 		
 		// 검색
 	$(document).on('click', '#btnSearch', function(e){
@@ -265,20 +168,6 @@
 
 	});	
 
-	/*한페이지당 게시물 */
-	function page(no){
-	  var startPage = no;
-	  var listSize = $("#listSize option:selected").val();
-		
-	  if(listSize == 10){
-		  var url="/testList.do?startPage="+startPage+"&listSize="+listSize
-	  }else if(listSize == 15){
-		  var url ="/testList.do?startPage="+startPage+"&listSize="+listSize
-	  }else if(listSize == 20){
-	      var url="/testList.do?startPage="+startPage+"&listSize="+listSize
-	 
-	  }
-	  location.href = url;
-	}
+
 </script>
 </html>

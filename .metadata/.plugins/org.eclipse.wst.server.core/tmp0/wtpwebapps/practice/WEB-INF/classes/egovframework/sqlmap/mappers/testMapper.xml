@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper
-	namespace="egovframework.practice.test.service.TestMapper">
+
+<mapper namespace="egovframework.practice.test.service.TestMapper">
 
 	<!--게시글 목록 조회 -->
 	<select id="selectTest" resultType="TestVO">
@@ -22,31 +22,9 @@
 			</if>
 		</trim>
 		ORDER BY
-		boardId DESC
-		LIMIT #{startList} OFFSET #{listSize}
+		no DESC
 	</select>
 
-	<!-- 전체 글의 개수를 읽어 오는 SQL문 -->
-	<select id="getBoardListCnt" resultType="int">
-		SELECT
-		count(*) as
-		listCnt
-		FROM
-		test
-		<trim prefix="WHERE" prefixOverrides="AND|OR">
-			<if test="keyword != null and keyword != '' ">
-				<if test="searchType=='si'">
-					AND si like CONCAT('%', #{keyword}, '%')
-				</if>
-				<if test="searchType=='gungu'">
-					AND gungu like CONCAT('%', #{keyword}, '%')
-				</if>
-				<if test="searchType=='kinds'">
-					AND kinds like CONCAT('%', #{keyword}, '%')
-				</if>
-			</if>
-		</trim>
-	</select>
 
 	<select id="selectKinds" resultType="SigunguVO">
 		select
@@ -82,8 +60,8 @@
 	<insert id="insertTest" parameterType="TestVO">
 		<![CDATA[
 		insert into test
-("bTotal","bActual","bIe","bIndomi","bEtc","bUnme","bEvalue","aTotal","aActual","aIe","aIndomi","aEtc","aUnme","aEvalue","kinds","si","gungu","name","phoneNumber","bEtcEx","aEtcEx")
-VALUES(#{bTotal},#{bActual},#{bIe},#{bIndomi},#{bEtc},#{bUnme},#{bEvalue},#{aTotal},#{aActual},#{aIe},#{aIndomi},#{aEtc},#{aUnme},#{aEvalue},#{kinds},#{si},#{gungu},#{name},#{phoneNumber},#{bEtcEx},#{aEtcEx})
+("bTotal","bActual","bIe","bIndomi","bEtc","bUnme","bEvalue","bStatus","aTotal","aActual","aIe","aStatus","aIndomi","aEtc","aUnme","aEvalue","kinds","si","gungu","name","phoneNumber","bEtcEx","aEtcEx")
+VALUES(#{bTotal},#{bActual},#{bIe},#{bIndomi},#{bEtc},#{bUnme},#{bEvalue},#{bStatus},#{aTotal},#{aActual},#{aIe},#{aStatus},#{aIndomi},#{aEtc},#{aUnme},#{aEvalue},#{kinds},#{si},#{gungu},#{name},#{phoneNumber},#{bEtcEx},#{aEtcEx})
 		]]>
 	</insert>
 
@@ -94,7 +72,7 @@ VALUES(#{bTotal},#{bActual},#{bIe},#{bIndomi},#{bEtc},#{bUnme},#{bEvalue},#{aTot
 		<![CDATA[
 			select *
 			from test
-			where no = ${no}
+			where no = #{no}
 		]]>
 	</select>
 
@@ -103,39 +81,36 @@ VALUES(#{bTotal},#{bActual},#{bIe},#{bIndomi},#{bEtc},#{bUnme},#{bEvalue},#{aTot
 
 		UPDATE test
 		SET
-		"bTotal" = #{bTotal},
-		"bActual" = #{bActual},
-		"bIe" =
-		#{bIe},
-		"bIndomi" = #{bIndomi},
-		"bEtc" = #{bEtc},
-		"bUnme" = #{bUnme},
-		"bEvalue" = #{bEvalue},
-		<!-- "bStatus"=#{bStatus}, -->
-		"aTotal" = #{aTotal},
-		"aActual" = #{aActual},
-		"aIe" = #{aIe},
-		<!-- "aStatus"=#{aStatus}, -->
-		"aIndomi" = #{aIndomi},
-		"aEtc" = #{aEtc},
-		"aUnme" = #{aUnme},
-		"aEvalue" =
-		#{aEvalue},
-		"kinds" = #{kinds},
-		"si" = #{si},
-		"gungu" = #{gungu},
-		"name" =
-		#{name},
-		"phoneNumber" = #{phoneNumber},
-		"bEtcEx" = #{bEtcEx},
-		"aEtcEx" = #{aEtcEx}
-		where no = ${no}
+		"bTotal" = #{bTotal}
+		,"bActual" = #{bActual}
+		,"bIe" = #{bIe}
+		,"bIndomi" = #{bIndomi}
+		,"bEtc" = #{bEtc}
+		,"bUnme" = #{bUnme}
+		,"bEvalue" = #{bEvalue}
+		,"bStatus"=#{bStatus}
+		,"aTotal" = #{aTotal}
+		,"aActual" = #{aActual}
+		,"aIe" = #{aIe}
+		,"aStatus"=#{aStatus}
+		,"aIndomi" = #{aIndomi}
+		,"aEtc" = #{aEtc}
+		,"aUnme" = #{aUnme}
+		,"aEvalue" = #{aEvalue}
+		,"kinds" = #{kinds}
+		,"si" = #{si}
+		,"gungu" = #{gungu}
+		,"name" = #{name}
+		,"phoneNumber" = #{phoneNumber}
+		,"bEtcEx" = #{bEtcEx}
+		,"aEtcEx" = #{aEtcEx}
+		where no = #{no}
 	</update>
 
 	<!--게시글 삭제 -->
 	<delete id="deleteTest">
 		delete from test
-		where no = ${no}
+		where no = #{no}
 	</delete>
 
 </mapper> 

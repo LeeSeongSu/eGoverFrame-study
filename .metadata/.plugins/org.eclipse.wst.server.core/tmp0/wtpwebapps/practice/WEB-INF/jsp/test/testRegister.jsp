@@ -9,25 +9,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"
-	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-	crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
-<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-	crossorigin="anonymous">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <body>
 	<div class="container">
 		<form action="insertTest.do" id="form_test" method="post"
 			encType="multiplart/form-data">
 			<table class="table table-bordered">
-				<thead>
-					<h3>기본정보</h3>
-				</thead>
+				<caption>기본정보</caption>
+
 				<tbody>
 					<tr>
 						<th>기관</th>
@@ -59,9 +55,7 @@
 			</table>
 			<br> <br> <br>
 			<table class="table table-bordered">
-				<thead>
-					<h3>시설물 물량 현황 정보</h3>
-				</thead>
+				<caption>시설물 물량 현황 정보</caption>
 				<tbody>
 					<tr>
 						<th rowspan="4" align="center">물량(단위:km)</th>
@@ -121,9 +115,7 @@
 			</table>
 			<br> <br> <br>
 			<table class="table table-bordered">
-				<thead>
-					<h3>비 측량물량(도면이기 등) 상세</h3>
-				</thead>
+				<caption>비 측량물량(도면이기 등) 상세</caption>
 				<tbody>
 					<tr>
 						<th>객체단위 데이터 추출 가능 여부</th>
@@ -133,17 +125,18 @@
 								<option value="false">불가능</option>
 						</select></td>
 						<td>첨부파일(비 측량 데이터)</td>
-						<td></td>
+						<td><input type="file" name="uploadFile"></td>
 					</tr>
 				</tbody>
 			</table>
 			<br> <br> <br>
+			<button type='button' class="btn btn-secondary" value='행삭제'
+				onclick='delRow()' style="float: right;">행삭제</button>
+			<button type='button' class="btn btn-secondary" value='행추가'
+				onclick='addRow()' style="float: right;">행추가</button>
+
 			<table id="unmeTable" class="table table-bordered">
 				<tbody>
-					<input type='button' value='행삭제' onclick='delRow()'
-						style="float: right;" />
-					<input type='button' value='행추가' onclick='addRow()'
-						style="float: right;" />
 					<tr>
 						<th>선택</th>
 						<th>도면이기 물량</th>
@@ -182,9 +175,9 @@
 				</tbody>
 
 			</table>
-			<button id="btn_register" type="button" class="btn_register"
+			<button id="btn_register" type="button" class="btn btn-secondary"
 				style="float: right;">등록</button>
-			<button id="btn_previous" type="button" class="btn_previous"
+			<button id="btn_previous" type="button" class="btn btn-secondary"
 				style="float: right;">이전</button>
 
 

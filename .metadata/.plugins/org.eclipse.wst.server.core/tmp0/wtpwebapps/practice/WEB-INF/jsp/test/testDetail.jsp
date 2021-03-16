@@ -9,22 +9,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-	crossorigin="anonymous">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <!-- Latest compiled and minified JavaScript -->
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-	crossorigin="anonymous"></script>
-<link href="/css/test/test.css" rel="stylesheet" type="text/css">
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <body>
@@ -32,17 +21,18 @@
 	<div class="container">
 		<form action="updateTest.do" id="viewForm" method="post"
 			encType="multiplart/form-data">
+			<input type="hidden" name="no" value="${result.no}"
+				class="form-control" />
 			<table class="table table-bordered">
-				<thead>
-					<h3>기본정보</h3>
-				</thead>
+
+				<caption>기본정보</caption>
 				<tbody>
 
 					<tr>
 						<th>기관</th>
 						<td><select name="si" class="form-control form-control-sm">
 
-								<option><c:out value="${result.si}" /></option>
+								<option selected="selected"><c:out value="${result.si}" /></option>
 
 						</select> <select name="gungu" class="form-control form-control-sm">
 
@@ -70,9 +60,9 @@
 			</table>
 			<br> <br> <br>
 			<table class="table table-bordered">
-				<thead>
-					<h3>시설물 물량 현황 정보</h3>
-				</thead>
+
+				<caption>시설물 물량 현황 정보</caption>
+
 				<tbody>
 					<tr>
 						<th rowspan="4" align="center">물량(단위:km)</th>
@@ -132,9 +122,9 @@
 			</table>
 			<br> <br> <br>
 			<table class="table table-bordered">
-				<thead>
-					<h3>비 측량물량(도면이기 등) 상세</h3>
-				</thead>
+
+				<caption>비 측량물량(도면이기 등) 상세</caption>
+
 				<tbody>
 					<tr>
 						<th>객체단위 데이터 추출 가능 여부</th>
@@ -146,7 +136,10 @@
 						<td>첨부파일(비 측량 데이터)</td>
 						<td>
 							<div class="mb-3">
-								<input class="form-control" type="file" id="formFile">
+								<a href="#" class="filedown" sfolder="${file.saveFolder}"
+									sfile="${file.saveFile}" ofile="${file.originFile}">[다운로드]</a>
+								<img
+									src="${root}/resources/db/${file.saveFolder}/${file.saveFile}">
 							</div>
 						</td>
 
@@ -154,12 +147,12 @@
 				</tbody>
 			</table>
 			<br> <br> <br>
+			<button type='button' class="btn btn-secondary" value='행삭제'
+				onclick='delRow()' style="float: right;">행추가</button>
+			<button type='button' class="btn btn-secondary" value='행추가'
+				onclick='addRow()' style="float: right;">행삭제</button>
 			<table class="table table-bordered">
 				<tbody>
-					<input type='button' value='행삭제' onclick='delRow()'
-						style="float: right;" />
-					<input type='button' value='행추가' onclick='addRow()'
-						style="float: right;" />
 					<tr>
 						<th>선택</th>
 						<th>도면이기 물량</th>
@@ -197,11 +190,11 @@
 			</table>
 
 
-			<button id="btn_modify" type="button" class="btn_register"
+			<button id="btn_modify" type="button" class="btn btn-secondary"
 				style="float: right;">수정</button>
-			<button id="btn_delete" type="button" class="btn_previous"
+			<button id="btn_delete" type="button" class="btn btn-secondary"
 				style="float: right;">삭제</button>
-			<button id="btn_previous" type="button" class="btn_previous"
+			<button id="btn_previous" type="button" class="btn btn-secondary"
 				style="float: right;">이전</button>
 		</form>
 	</div>
@@ -210,15 +203,14 @@
 <script type="text/javascript">
 	$(document).on('click', '#btn_modify', function(e) {
 		if (confirm("정말 수정하시겠습니까 ?") == true) {
-
 			$("#viewForm").submit();
-
 		} else {
 			return;
 		}
 	});
 	$(document).on('click', '#btn_delete', function(e) {
 		if (confirm("정말 삭제하시겠습니까 ?") == true) {
+
 			$("#viewForm").attr("action", "deleteTest.do");
 			$("#viewForm").submit();
 		} else {

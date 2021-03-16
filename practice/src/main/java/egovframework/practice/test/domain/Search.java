@@ -1,7 +1,7 @@
 package egovframework.practice.test.domain;
 
 //Search 클래스가 Pagination 클래스를 상속 받았으므로 기존 Pagination의 특성을 그대로 사용 할 수 있다.
-public class Search extends Pagination {
+public class Search{
 
 	private String searchType;
 	private String keyword;

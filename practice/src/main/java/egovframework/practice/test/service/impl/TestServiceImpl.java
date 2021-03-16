@@ -22,12 +22,6 @@ public class TestServiceImpl implements TestService {
 		return testDAOService.selectTest(search);
 	}
 
-	// 총 게시글 개수 확인
-	@Override
-	public int getBoardListCnt(Search search) throws Exception {
-		return testDAOService.getBoardListCnt(search);
-	}
-
 	@Override
 	public void insertTest(TestVO testVO) throws Exception {
 		testDAOService.insertTest(testVO);
