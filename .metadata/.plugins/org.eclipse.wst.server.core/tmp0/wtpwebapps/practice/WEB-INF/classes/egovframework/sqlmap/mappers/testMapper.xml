@@ -60,8 +60,8 @@
 	<insert id="insertTest" parameterType="TestVO">
 		<![CDATA[
 		insert into test
-("bTotal","bActual","bIe","bIndomi","bEtc","bUnme","bEvalue","bStatus","aTotal","aActual","aIe","aStatus","aIndomi","aEtc","aUnme","aEvalue","kinds","si","gungu","name","phoneNumber","bEtcEx","aEtcEx")
-VALUES(#{bTotal},#{bActual},#{bIe},#{bIndomi},#{bEtc},#{bUnme},#{bEvalue},#{bStatus},#{aTotal},#{aActual},#{aIe},#{aStatus},#{aIndomi},#{aEtc},#{aUnme},#{aEvalue},#{kinds},#{si},#{gungu},#{name},#{phoneNumber},#{bEtcEx},#{aEtcEx})
+("bTotal","bActual","bIe","bIndomi","bEtc","bUnme","bEvalue","bStatus","aTotal","aActual","aIe","aStatus","aIndomi","aEtc","aUnme","aEvalue","kinds","si","gungu","name","phoneNumber","bEtcEx","aEtcEx","file_name")
+VALUES(#{bTotal},#{bActual},#{bIe},#{bIndomi},#{bEtc},#{bUnme},#{bEvalue},#{bStatus},#{aTotal},#{aActual},#{aIe},#{aStatus},#{aIndomi},#{aEtc},#{aUnme},#{aEvalue},#{kinds},#{si},#{gungu},#{name},#{phoneNumber},#{bEtcEx},#{aEtcEx},#{fileName})
 		]]>
 	</insert>
 

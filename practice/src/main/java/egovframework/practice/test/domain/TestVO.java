@@ -1,6 +1,7 @@
 package egovframework.practice.test.domain;
 
-import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class TestVO {
 
@@ -29,7 +30,8 @@ public class TestVO {
 	private String aEtcEx;
 	private String name;
 	private String phoneNumber;
-	private List<FileInfoDto> fileInfos;
+	private String fileName;
+	private MultipartFile uploadFile;
 
 	public String getKinds() {
 		return kinds;
@@ -231,12 +233,20 @@ public class TestVO {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public List<FileInfoDto> getFileInfos() {
-		return fileInfos;
+	public String getFileName() {
+		return fileName;
 	}
 
-	public void setFileInfos(List<FileInfoDto> fileInfos) {
-		this.fileInfos = fileInfos;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
 	}
 
 }

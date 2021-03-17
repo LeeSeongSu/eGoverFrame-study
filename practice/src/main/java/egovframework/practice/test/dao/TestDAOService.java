@@ -2,9 +2,12 @@ package egovframework.practice.test.dao;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import egovframework.practice.test.domain.Search;
 import egovframework.practice.test.domain.SigunguVO;

@@ -20,7 +20,7 @@
 <body>
 	<div class="container">
 		<form action="insertTest.do" id="form_test" method="post"
-			encType="multiplart/form-data">
+			encType="multipart/form-data">
 			<table class="table table-bordered">
 				<caption>기본정보</caption>
 
@@ -118,14 +118,25 @@
 				<caption>비 측량물량(도면이기 등) 상세</caption>
 				<tbody>
 					<tr>
-						<th>객체단위 데이터 추출 가능 여부</th>
+						<th rowspan="2" align="center">객체단위 데이터 추출 가능 여부</th>
+						<td>2010년 까지</td>
 						<td><select class="form-control form-control-sm"
 							name="bStatus">
 								<option value="true">가능</option>
 								<option value="false">불가능</option>
 						</select></td>
 						<td>첨부파일(비 측량 데이터)</td>
-						<td><input type="file" name="uploadFile"></td>
+						<td><input type="file" name="uploadFile"/></td>
+					</tr>
+					<tr>
+						<td>2010년 이후</td>
+						<td><select class="form-control form-control-sm"
+							name="aStatus">
+								<option value="true">가능</option>
+								<option value="false">불가능</option>
+						</select></td>
+						<td>첨부파일(비 측량 데이터)</td>
+						<td></td>
 					</tr>
 				</tbody>
 			</table>
@@ -194,6 +205,20 @@
 		//이전 클릭 시 testList로 이동
 		$("#btn_previous").click(function javascript_onclikc() {
 			$(location).attr('href', 'testList.do');
+		});
+
+		/**
+		 * 첨부파일 관련 처리
+		 */
+		/* 파일을 선택했을 때 파일명이 보이게 처리 */
+		$('#attach-file').on('change', function() {
+			$('#file-name').text(this.files[0].name);
+			$('#delete-file').css('display', 'inline');
+		});
+		$('#delete-file').on('click', function() {
+			$('#file-name').text('');
+			$('#delete-file').css('display', 'none');
+			$('#attach-file').val('');
 		});
 
 		function addRow() {

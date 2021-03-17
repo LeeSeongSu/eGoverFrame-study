@@ -3,6 +3,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ page isErrorPage="true" import="java.io.*" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,7 +22,7 @@
 
 	<div class="container">
 		<form action="updateTest.do" id="viewForm" method="post"
-			encType="multiplart/form-data">
+			encType="multipart/form-data">
 			<input type="hidden" name="no" value="${result.no}"
 				class="form-control" />
 			<table class="table table-bordered">
@@ -32,7 +34,7 @@
 						<th>기관</th>
 						<td><select name="si" class="form-control form-control-sm">
 
-								<option selected="selected"><c:out value="${result.si}" /></option>
+								<option><c:out value="${result.si}" /></option>
 
 						</select> <select name="gungu" class="form-control form-control-sm">
 
@@ -127,24 +129,40 @@
 
 				<tbody>
 					<tr>
-						<th>객체단위 데이터 추출 가능 여부</th>
+						<th rowspan="2" align="center">객체단위 데이터 추출 가능 여부</th>
+						<td>2010년 까지</td>
 						<td><select class="form-control form-control-sm"
 							name="bStatus">
-								<option value="true">가능</option>
-								<option value="false">불가능</option>
+								<option>
+								<c:out value="${result.bStatus}" />
+								</option>
+
+
 						</select></td>
 						<td>첨부파일(비 측량 데이터)</td>
-						<td>
-							<div class="mb-3">
-								<a href="#" class="filedown" sfolder="${file.saveFolder}"
-									sfile="${file.saveFile}" ofile="${file.originFile}">[다운로드]</a>
-								<img
-									src="${root}/resources/db/${file.saveFolder}/${file.saveFile}">
-							</div>
-						</td>
+						<td><c:if test="${result.fileName ne null}">
 
+								<a href="fileDownload.do?fileName=${result.fileName}">${result.fileName}</a>
+
+							</c:if>
+						</td>
 					</tr>
-				</tbody>
+					<tr>
+						<td>2010년 이후</td>
+						<td><select class="form-control form-control-sm"
+							name="aStatus">
+								<option>
+								<c:out value="${result.aStatus}" />
+								</option>
+
+						</select></td>
+						<td>첨부파일(비 측량 데이터)</td>
+						<td><c:if test="${result.fileName ne null}">
+
+								<a href="fileDownload.do?fileName=${result.fileName}">${result.fileName}</a>
+
+							</c:if></td>
+					</tr>
 			</table>
 			<br> <br> <br>
 			<button type='button' class="btn btn-secondary" value='행삭제'

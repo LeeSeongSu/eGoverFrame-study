@@ -35,17 +35,14 @@
 					<%-- value="${pagination.keyword}" --%> class="form-control form-control-sm"
 					name="keyword" id="keyword">
 			</div>
-			<button class="btn btn-secondary" name="btnSearch"
-				id="btnSearch">검색</button>
-				<form action="/excelDown.do" method="post">
-				<input type="submit" value="excel">
-				</form>
+			<button class="btn btn-secondary" name="btnSearch" id="btnSearch">검색</button>
+
 		</div>
 		<!-- search{e} -->
 
 		<div>
-			<button id="btn_write" type="button"
-				class="btn btn-secondary" style="float: right;">추가등록</button>
+			<button id="btn_write" type="button" class="btn btn-secondary"
+				style="float: right;">추가등록</button>
 
 		</div>
 
@@ -95,9 +92,19 @@
 									value="${result.bUnme}" />&nbsp;</td>
 							<td align="center" class="listtd"><c:out
 									value="${result.bEvalue}" />&nbsp;</td>
-							<td align="center" class="listtd"><c:out
-									value="${result.bStatus}" />&nbsp;</td>
-
+							<td align="center" class="listtd"><c:choose>
+									<c:when test="${result.bStatus eq true}">
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+											fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
+  <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+  <path
+												d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+</svg>
+									</c:when>
+									<c:otherwise>
+										불가능
+									</c:otherwise>
+								</c:choose></td>
 
 							<td rowspan="2">
 								<div class="d-grid gap-2 d-md-flex justify-content-md-center">
@@ -122,8 +129,20 @@
 									value="${result.aUnme}" />&nbsp;</td>
 							<td align="center" class="listtd"><c:out
 									value="${result.aEvalue}" />&nbsp;</td>
-							<td align="center" class="listtd"><c:out
-									value="${result.aStatus}" />&nbsp;</td>
+							<td align="center" class="listtd"><c:choose>
+									<c:when test="${result.aStatus eq true}">
+										
+										<a href="fileDownload.do?fileName=${result.fileName}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+											fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
+  <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+  <path
+												d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+</svg></a>
+									</c:when>
+									<c:otherwise>
+										불가능
+									</c:otherwise>
+								</c:choose></td>
 						</tr>
 
 					</c:forEach>
