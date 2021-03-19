@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ page isErrorPage="true" import="java.io.*" %>
+<%@ page isErrorPage="true" import="java.io.*"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,17 +19,14 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <body>
-
 	<div class="container">
 		<form action="updateTest.do" id="viewForm" method="post"
 			encType="multipart/form-data">
 			<input type="hidden" name="no" value="${result.no}"
 				class="form-control" />
 			<table class="table table-bordered">
-
 				<caption>기본정보</caption>
 				<tbody>
-
 					<tr>
 						<th>기관</th>
 						<td><select name="si" class="form-control form-control-sm">
@@ -134,7 +131,7 @@
 						<td><select class="form-control form-control-sm"
 							name="bStatus">
 								<option>
-								<c:out value="${result.bStatus}" />
+									<c:out value="${result.bStatus}" />
 								</option>
 
 
@@ -144,15 +141,14 @@
 
 								<a href="fileDownload.do?fileName=${result.fileName}">${result.fileName}</a>
 
-							</c:if>
-						</td>
+							</c:if></td>
 					</tr>
 					<tr>
 						<td>2010년 이후</td>
 						<td><select class="form-control form-control-sm"
 							name="aStatus">
 								<option>
-								<c:out value="${result.aStatus}" />
+									<c:out value="${result.aStatus}" />
 								</option>
 
 						</select></td>
@@ -206,8 +202,6 @@
 				</tbody>
 
 			</table>
-
-
 			<button id="btn_modify" type="button" class="btn btn-secondary"
 				style="float: right;">수정</button>
 			<button id="btn_delete" type="button" class="btn btn-secondary"

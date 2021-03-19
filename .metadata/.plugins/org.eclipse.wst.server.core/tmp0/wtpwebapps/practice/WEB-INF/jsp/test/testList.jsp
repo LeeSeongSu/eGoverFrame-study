@@ -16,33 +16,38 @@
 	style="text-align: center; margin: 0 auto; display: inline; padding-top: 100px;">
 
 
-	<div id="content_pop">
 
-		<!-- search{s} -->
-		<div class="form-group row justify-content-center">
 
-			<div class="w100" style="padding-right: 10px">
-				<select class="form-control form-control-sm" name="searchType"
-					id="searchType">
-					<option value="si">시</option>
-					<option value="gungu">군구</option>
-					<option value="kinds">종류</option>
-				</select>
-			</div>
+	<!-- search{s} -->
+	<div class="form-group row justify-content-center">
 
-			<div class="w300" style="padding-right: 10px">
-				<input type="text"
-					<%-- value="${pagination.keyword}" --%> class="form-control form-control-sm"
-					name="keyword" id="keyword">
-			</div>
-			<button class="btn btn-secondary" name="btnSearch" id="btnSearch">검색</button>
-
+		<div class="w100" style="padding-right: 10px">
+			<select class="form-control form-control-sm" name="searchType"
+				id="searchType">
+				<option value="si">시</option>
+				<option value="gungu">군구</option>
+				<option value="kinds">종류</option>
+			</select>
 		</div>
-		<!-- search{e} -->
 
-		<div>
+		<div class="w300" style="padding-right: 10px">
+			<input type="text"
+				<%-- value="${pagination.keyword}" --%> class="form-control form-control-sm"
+				name="keyword" id="keyword">
+		</div>
+		<button class="btn btn-secondary" name="btnSearch" id="btnSearch">검색</button>
+
+	</div>
+	<!-- search{e} -->
+
+	<div>
+		<div id="content_pop">
 			<button id="btn_write" type="button" class="btn btn-secondary"
-				style="float: right;">추가등록</button>
+				style="float: right;" style="float: right;">추가등록</button>
+			<form name="excelForm" method="POST" action="./excelDown.do">
+				<input type="submit" class="btn btn-primary" value="엑셀다운로드" style="float: right;"/>
+			</form>
+
 
 		</div>
 
@@ -131,12 +136,13 @@
 									value="${result.aEvalue}" />&nbsp;</td>
 							<td align="center" class="listtd"><c:choose>
 									<c:when test="${result.aStatus eq true}">
-										
-										<a href="fileDownload.do?fileName=${result.fileName}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-											fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
+
+										<a href="fileDownload.do?fileName=${result.fileName}"><svg
+												xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+												fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
   <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
   <path
-												d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+													d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
 </svg></a>
 									</c:when>
 									<c:otherwise>

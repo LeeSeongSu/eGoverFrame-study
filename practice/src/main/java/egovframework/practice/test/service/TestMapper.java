@@ -1,6 +1,7 @@
 package egovframework.practice.test.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -31,6 +32,8 @@ public interface TestMapper {
 	public List<SigunguVO> selectDong(SigunguVO sigunguVO) throws Exception;
 	
 	public List<SigunguVO> selectKinds(SigunguVO sigunguVO) throws Exception;
+
+
 
 
 

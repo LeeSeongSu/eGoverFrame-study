@@ -249,4 +249,6 @@ public class TestVO {
 		this.uploadFile = uploadFile;
 	}
 
+	
+
 }
