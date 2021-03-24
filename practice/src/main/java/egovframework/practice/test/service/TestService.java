@@ -1,9 +1,6 @@
 package egovframework.practice.test.service;
 
 import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
-
 import egovframework.practice.test.domain.Search;
 import egovframework.practice.test.domain.SigunguVO;
 import egovframework.practice.test.domain.TestVO;

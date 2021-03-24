@@ -136,7 +136,8 @@
 								<option value="false">불가능</option>
 						</select></td>
 						<td>첨부파일(비 측량 데이터)</td>
-						<td></td>
+							<td></td>
+						
 					</tr>
 				</tbody>
 			</table>

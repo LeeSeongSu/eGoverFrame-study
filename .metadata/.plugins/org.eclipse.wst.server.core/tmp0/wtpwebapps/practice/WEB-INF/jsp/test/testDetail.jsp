@@ -30,12 +30,14 @@
 					<tr>
 						<th>기관</th>
 						<td><select name="si" class="form-control form-control-sm">
-
-								<option><c:out value="${result.si}" /></option>
-
+								<c:forEach var="result" items="${si}" varStatus="status">
+									<option value="${result.si}">${result.si}</option>
+								</c:forEach>
 						</select> <select name="gungu" class="form-control form-control-sm">
 
-								<option><c:out value="${result.gungu}" /></option>
+								<c:forEach var="result" items="${gungu}" varStatus="status">
+									<option value="${result.gungu}">${result.gungu}</option>
+								</c:forEach>
 
 						</select></td>
 
@@ -51,7 +53,10 @@
 						<th>시설물</th>
 						<td><select name="kinds" class="form-control form-control-sm">
 
-								<option><c:out value="${result.kinds}" /></option>
+								<c:forEach var="result" items="${kinds}" varStatus="status">
+									<option value="${result.kinds}">${result.kinds}</option>
+								</c:forEach>
+
 
 						</select></td>
 					</tr>
@@ -137,10 +142,13 @@
 
 						</select></td>
 						<td>첨부파일(비 측량 데이터)</td>
-						<td><c:if test="${result.fileName ne null}">
+						<td><input type="file" name="uploadFile" /> <c:if
+								test="${result.fileName ne null}">
 
-								<a href="fileDownload.do?fileName=${result.fileName}">${result.fileName}</a>
-
+								<a href="fileDownload.do?fileName=${result.fileName}"><input
+									type="text" id="asd" value="${result.fileName}" name="fileName"
+									class="form-control" readonly /></a>
+								<button id="asdasd" type="button" class="btn_previous">파일지우기</button>
 							</c:if></td>
 					</tr>
 					<tr>
@@ -155,8 +163,10 @@
 						<td>첨부파일(비 측량 데이터)</td>
 						<td><c:if test="${result.fileName ne null}">
 
-								<a href="fileDownload.do?fileName=${result.fileName}">${result.fileName}</a>
-
+								<a href="fileDownload.do?fileName=${result.fileName}"><input
+									type="text" id="asd" value="${result.fileName}" name="fileName"
+									class="form-control" readonly /></a>
+								<button id="asdasd" type="button" class="btn_previous">파일지우기</button>
 							</c:if></td>
 					</tr>
 			</table>
@@ -184,17 +194,23 @@
 						<td><input type="text" value="" /></td>
 						<td><select class="form-control form-control-sm">
 
-								<option><c:out value="${result.si}" /></option>
+								<c:forEach var="result" items="${si}" varStatus="status">
+									<option value="${result.si}">${result.si}</option>
+								</c:forEach>
 
 						</select></td>
 						<td><select class="form-control form-control-sm">
 
-								<option><c:out value="${result.gungu}" /></option>
+								<c:forEach var="result" items="${gungu}" varStatus="status">
+									<option value="${result.gungu}">${result.gungu}</option>
+								</c:forEach>
 
 						</select></td>
 						<td><select class="form-control form-control-sm">
 
-								<option><c:out value="${result.dong}" /></option>
+								<c:forEach var="result" items="${dong}" varStatus="status">
+									<option value="${result.dong}">${result.dong}</option>
+								</c:forEach>
 
 						</select></td>
 					</tr>
@@ -233,6 +249,10 @@
 	//이전 클릭 시 testList로 이동
 	$("#btn_previous").click(function javascript_onclikc() {
 		$(location).attr('href', 'testList.do');
+
+	});
+	$("#asdasd").click(function javascript_onclikc() {
+		$('#asd').val(null);
 
 	});
 </script>

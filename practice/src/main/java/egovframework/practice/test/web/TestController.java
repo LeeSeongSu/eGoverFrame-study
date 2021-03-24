@@ -89,14 +89,17 @@ public class TestController {
 	// HttpServletRequest 객체안에 모든 데이터들이 들어가는데 getParameter메소드로 no 원하는 데이터 가져옴
 	// 제목 클릭 시 상세보기
 	@RequestMapping(value = "/testDetail.do")
-	public String viewForm(@ModelAttribute("testVO") TestVO testVO, Model model, HttpServletRequest request)
-			throws Exception {
+	public String viewForm(@ModelAttribute("testVO") TestVO testVO, @ModelAttribute("sigunguVO") SigunguVO sigunguVO,
+			Model model, HttpServletRequest request) throws Exception {
 
 		int no = Integer.parseInt(request.getParameter("no"));
 		testVO.setNo(no);
 		TestVO resultVO = testServiceImpl.selectDetail(testVO);
 		model.addAttribute("result", resultVO);
-
+		model.addAttribute("si", testServiceImpl.selectSi(sigunguVO));
+		model.addAttribute("gungu", testServiceImpl.selectGungu(sigunguVO));
+		model.addAttribute("dong", testServiceImpl.selectDong(sigunguVO));
+		model.addAttribute("kinds", testServiceImpl.selectKinds(sigunguVO));
 		return "test/testDetail";
 	}
 

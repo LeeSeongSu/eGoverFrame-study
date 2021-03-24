@@ -1,6 +1,5 @@
 package egovframework.practice.test.domain;
 
-
 import org.springframework.web.multipart.MultipartFile;
 
 public class TestVO {
@@ -248,7 +247,5 @@ public class TestVO {
 	public void setUploadFile(MultipartFile uploadFile) {
 		this.uploadFile = uploadFile;
 	}
-
-	
 
 }
