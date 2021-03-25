@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
-<mapper namespace="egovframework.practice.test.service.UserMapper">
- 
- <!-- 회원가입  -->
-    <insert id="createUser">
-        INSERT INTO user(id, username, password) VALUES(#{userid}, #{username},#{password})
-    </insert>
-    
+
+<mapper
+	namespace="egovframework.practice.test.service.UserMapper">
+
+	<insert id="register">
+		INSERT INTO "user" (
+		user_id
+		, user_pw
+		, user_name
+		,user_email
+		) VALUES (
+		#{userId}
+		, #{userPw}
+		, #{userName}
+		, #{userEmail}
+		)
+	</insert>
+	<select id="login" resultType="UserVO">
+		SELECT
+		*
+		FROM "user"
+		WHERE user_id =
+		#{userId}
+	</select>
 </mapper>

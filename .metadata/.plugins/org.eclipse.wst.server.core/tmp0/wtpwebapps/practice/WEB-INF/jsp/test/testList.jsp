@@ -14,10 +14,9 @@
 
 <body
 	style="text-align: center; margin: 0 auto; display: inline; padding-top: 100px;">
-
-
-
-
+	<div>
+		<%@include file="../nav.jsp"%>
+	</div>
 	<!-- search{s} -->
 	<div class="form-group row justify-content-center">
 

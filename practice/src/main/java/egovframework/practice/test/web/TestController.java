@@ -56,7 +56,7 @@ public class TestController {
 
 	// 글 작성 클릭시 글 작성 페이지로 이동
 	@RequestMapping(value = "/testRegister.do")
-	public String testRegister(SigunguVO sigunguVO, Model model) throws Exception {
+	public String testRegister(SigunguVO sigunguVO,Model model) throws Exception {
 		model.addAttribute("si", testServiceImpl.selectSi(sigunguVO));
 		model.addAttribute("gungu", testServiceImpl.selectGungu(sigunguVO));
 		model.addAttribute("dong", testServiceImpl.selectDong(sigunguVO));

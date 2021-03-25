@@ -4,41 +4,59 @@ import java.util.Date;
 
 public class UserVO {
 
-	private String username;
-	private String userid;
-	private String password;
-	private Date getnerated_date;
+	private String userId;
+	private String userPw;
+	private String userName;
+	private String userEmail;
+	private Date userJoinDate;
+	private Date userLoginDate;
 
-	public String getUsername() {
-		return username;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
-	public String getUserid() {
-		return userid;
+	public String getUserPw() {
+		return userPw;
 	}
 
-	public void setUserid(String userid) {
-		this.userid = userid;
+	public void setUserPw(String userPw) {
+		this.userPw = userPw;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public Date getGetnerated_date() {
-		return getnerated_date;
+	public String getUserEmail() {
+		return userEmail;
 	}
 
-	public void setGetnerated_date(Date getnerated_date) {
-		this.getnerated_date = getnerated_date;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
+	public Date getUserJoinDate() {
+		return userJoinDate;
+	}
+
+	public void setUserJoinDate(Date userJoinDate) {
+		this.userJoinDate = userJoinDate;
+	}
+
+	public Date getUserLoginDate() {
+		return userLoginDate;
+	}
+
+	public void setUserLoginDate(Date userLoginDate) {
+		this.userLoginDate = userLoginDate;
 	}
 
 }

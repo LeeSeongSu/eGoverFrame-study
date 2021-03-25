@@ -10,8 +10,6 @@ public interface TestDAO {
 
 	List<TestVO> selectTest(Search search) throws Exception;
 	
-	
-
 	void insertTest(TestVO testVO) throws Exception;
 
 	TestVO selectDetail(TestVO testVO) throws Exception;
