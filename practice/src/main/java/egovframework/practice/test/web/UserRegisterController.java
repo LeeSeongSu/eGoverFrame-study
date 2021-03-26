@@ -15,6 +15,7 @@ import egovframework.practice.test.service.UserService;
  */
 
 @Controller
+@RequestMapping("/user")
 public class UserRegisterController {
 
 	@Autowired
@@ -35,7 +36,7 @@ public class UserRegisterController {
 		userServiceImpl.register(userVO);
 		redirectAttributes.addFlashAttribute("msg", "REGISTERED");
 
-		return "redirect:testList.do";
+		return "redirect:/";
 	}
 
 }

@@ -13,7 +13,7 @@ import egovframework.practice.test.domain.UserVO;
 import egovframework.practice.test.service.UserService;
 
 @Controller
-
+@RequestMapping("/user")
 public class UserLoginController {
 
 	@Autowired

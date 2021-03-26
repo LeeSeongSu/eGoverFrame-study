@@ -18,6 +18,8 @@ import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +29,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import commons.interceptor.LoginInterceptor;
+import egovframework.practice.cmmn.EgovSampleExcepHndlr;
 import egovframework.practice.test.domain.Search;
 import egovframework.practice.test.domain.SigunguVO;
 import egovframework.practice.test.domain.TestVO;
@@ -37,6 +41,7 @@ public class TestController {
 
 	@Autowired
 	private TestService testServiceImpl;
+	
 
 	// 글 목록 리스트, 페이징, 검색
 	@RequestMapping(value = "/testList.do")
@@ -50,13 +55,13 @@ public class TestController {
 
 		// 게시글 화면 출력
 		model.addAttribute("list", testServiceImpl.selectTest(search));
-
+		
 		return "test/testList";
 	}
 
 	// 글 작성 클릭시 글 작성 페이지로 이동
 	@RequestMapping(value = "/testRegister.do")
-	public String testRegister(SigunguVO sigunguVO,Model model) throws Exception {
+	public String testRegister(SigunguVO sigunguVO, Model model) throws Exception {
 		model.addAttribute("si", testServiceImpl.selectSi(sigunguVO));
 		model.addAttribute("gungu", testServiceImpl.selectGungu(sigunguVO));
 		model.addAttribute("dong", testServiceImpl.selectDong(sigunguVO));
@@ -107,7 +112,7 @@ public class TestController {
 	@RequestMapping(value = "/updateTest.do")
 	public String updateTest(@ModelAttribute("testVO") TestVO testVO, HttpServletRequest request) throws Exception {
 		testServiceImpl.updateTest(testVO);
-
+	
 		return "redirect:testList.do";
 	}
 

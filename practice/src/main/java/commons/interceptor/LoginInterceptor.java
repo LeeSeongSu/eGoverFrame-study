@@ -1,4 +1,4 @@
-package commons;
+package commons.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,9 +26,11 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		if (userVO != null) {
 			logger.info("new login success");
 			httpSession.setAttribute(LOGIN, userVO);
-			response.sendRedirect("/");
-		}
-
+			System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!");
+			response.sendRedirect("/"); 
+		} else
+			logger.info("login fail");
+		System.out.println("--------------------------------");
 	}
 
 	@Override

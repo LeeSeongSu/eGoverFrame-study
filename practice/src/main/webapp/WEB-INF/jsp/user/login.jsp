@@ -12,7 +12,7 @@
 		<div class="login-box-body">
 			<p class="login-box-msg">로그인 페이지</p>
 
-			<form action="loginPost.do" method="post">
+			<form action="/user/loginPost.do" method="post">
 				<div class="form-group has-feedback">
 					<input type="text" name="userId" class="form-control"
 						placeholder="아아디"> <span

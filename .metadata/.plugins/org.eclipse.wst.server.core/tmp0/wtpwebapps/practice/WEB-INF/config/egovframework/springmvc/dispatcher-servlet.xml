@@ -88,10 +88,9 @@
 
 	<mvc:view-controller path="/cmmn/validator.do"
 		view-name="cmmn/validator" />
-		
-		
-	<bean id="loginInterceptor" class="commons.LoginInterceptor" />
 
+
+	<bean id="loginInterceptor" class="commons.interceptor.LoginInterceptor" />
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/user/loginPost" />
