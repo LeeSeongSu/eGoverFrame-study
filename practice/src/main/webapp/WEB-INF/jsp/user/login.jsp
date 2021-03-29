@@ -5,8 +5,7 @@
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="${path}/"> <b>DoubleS</b>&nbsp MVC-BOARD
-			</a>
+			<a href="${path}/"> 지하시설물 </a>
 		</div>
 		<!-- /.login-logo -->
 		<div class="login-box-body">
@@ -26,7 +25,8 @@
 				<div class="row">
 					<div class="col-xs-8">
 						<div class="checkbox icheck">
-							<label> <!--   <input type="checkbox" name="useCookie"> 로그인유지 -->
+							<label> <input type="checkbox" name="useCookie">
+								로그인유지
 							</label>
 						</div>
 					</div>
@@ -39,11 +39,7 @@
 					<!-- /.col -->
 				</div>
 			</form>
-
-
-
-			<a href="#">비밀번호 찾기</a><br> <a href="register.do"
-				class="text-center">회원가입</a>
+			<a href="register.do" class="text-center">회원가입</a>
 
 		</div>
 		<!-- /.login-box-body -->
@@ -58,14 +54,6 @@
 		} else if (msg == "FAILURE") {
 			alert("아이디와 비밀번호를 확인해주세요.");
 		}
-
-		$(function() {
-			$('input').iCheck({
-				checkboxClass : 'icheckbox_square-blue',
-				radioClass : 'iradio_square-blue',
-				increaseArea : '20%' // optional
-			});
-		});
 	</script>
 </body>
 </html>

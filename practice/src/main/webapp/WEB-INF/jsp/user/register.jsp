@@ -79,7 +79,7 @@
 								class="btn btn-primary btn-lg btn-block login-button">Register</button>
 						</div>
 						<div class="login-register">
-							<a href="index.php">Login</a>
+							<a href="/user/login.do">Login</a>
 						</div>
 					</form>
 				</div>

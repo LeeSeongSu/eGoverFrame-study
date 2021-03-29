@@ -25,8 +25,9 @@
 		WHERE user_id =
 		#{userId}
 	</select>
-	
-	<resultMap id="userVOResultMap" type="egovframework.practice.test.domain.UserVO">
+
+	<resultMap id="userVOResultMap"
+		type="egovframework.practice.test.domain.UserVO">
 		<id property="userId" column="user_id" />
 		<result property="userPw" column="user_pw" />
 		<result property="userName" column="user_name" />
@@ -34,4 +35,18 @@
 		<result property="userJoinDate" column="user_join_date" />
 		<result property="userLoginDate" column="user_login_date" />
 	</resultMap>
+
+	<update id="keepLogin">
+		UPDATE "user"
+		SET session_key = #{sessionId}
+		, session_limit = #{sessionLimit}
+		WHERE user_id = #{userId}
+	</update>
+
+	<select id="checkUserWithSessionKey" resultMap="userVOResultMap">
+		SELECT
+		*
+		FROM "user"
+		WHERE session_key = #{value}
+	</select>
 </mapper>

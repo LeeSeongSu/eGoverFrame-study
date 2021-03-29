@@ -29,7 +29,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import commons.interceptor.LoginInterceptor;
 import egovframework.practice.cmmn.EgovSampleExcepHndlr;
 import egovframework.practice.test.domain.Search;
 import egovframework.practice.test.domain.SigunguVO;

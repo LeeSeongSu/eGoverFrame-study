@@ -1,5 +1,6 @@
 package commons.interceptor;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -26,11 +27,23 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		if (userVO != null) {
 			logger.info("new login success");
 			httpSession.setAttribute(LOGIN, userVO);
-			System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!");
-			response.sendRedirect("/"); 
+			/* response.sendRedirect("/"); */
+			if (request.getParameter("useCookie") != null) {
+				logger.info("remember me...");
+				// 쿠키 생성
+				Cookie loginCookie = new Cookie("loginCookie", httpSession.getId());
+				loginCookie.setPath("/");
+				loginCookie.setMaxAge(60 * 60 * 24 * 7);
+				// 전송
+				response.addCookie(loginCookie);
+			}
+
+			Object destination = httpSession.getAttribute("destination");
+			response.sendRedirect(destination != null ? (String) destination : "/");
 		} else
+
 			logger.info("login fail");
-		System.out.println("--------------------------------");
+
 	}
 
 	@Override
@@ -38,6 +51,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 
 		HttpSession httpSession = request.getSession();
+
 		// 기존의 로그인 정보 제거
 		if (httpSession.getAttribute(LOGIN) != null) {
 			logger.info("clear login data before");
